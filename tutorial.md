@@ -3,13 +3,21 @@
 *Añadir repositorio remoto:*
  
 	‘git remote add origin url‘
-Ver repositorios remotos:
+
+*Ver repositorios remotos:*
+
 	‘git remote -v‘
-Eliminar repositorio remoto:
+
+*Eliminar repositorio remoto:*
+
 	‘git remote rm origin‘
-Añadir cambios del repositorio local al remoto:
+
+*Añadir cambios del repositorio local al remoto:*
+
 	‘git push -u origin master‘
-Añadir cambios del repositorio remoto al local:
+
+*Añadir cambios del repositorio remoto al local:*
+	
 	‘git pull‘
 
 #Comandos GitHub II
