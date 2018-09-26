@@ -17,8 +17,6 @@
 	‘git push -u origin master‘
 
 *Añadir cambios del repositorio remoto al local:*
-
-##LOCAL
 	
 	‘git pull‘
 
