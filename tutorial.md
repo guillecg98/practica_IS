@@ -175,7 +175,7 @@ git stash apply nombre_stash`
 git stash pop nombre_stash
 ~~~
 
-![Git no es GitHub](Github2.png)
+![Git no es GitHub](http://www.klebercarvalho.com/blog/wp-content/uploads/2018/08/Github2.png)
 
 
 
