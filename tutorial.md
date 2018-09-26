@@ -1,3 +1,107 @@
+# *INTRODUCCION A GIT*
+
+
+## Configuración básica
+
+*Nombre del Administrador:*
+
+`git config --global user.name "Alejandro Ariza"`
+
+*Correo electrónico:*
+
+`git config --global user.email p42argea@uco.es`
+
+*Editor de texto:*
+
+`git config --global core.editor "gedit"`
+
+*Color de la interfaz:*
+
+`git config --global color.ui true`
+
+*Listado de la configuración:*
+
+`git config --list`
+
+
+## USO BÁSICO
+
+**Los tres estados de GIT**
+
+
+![Imagen 1](https://git-scm.com/figures/18333fig0106-tn.png)
+
+
+## Comandos Básicos I
+
+*Iniciar repositorio en un directorio:*
+
+`git init`
+
+*Agregar cambios al area de staging:*
+
+`git add`
+
+*Validar cambios en el repositorio:*
+
+`git commit -m "Mensaje"`
+
+*Los dos pases anteriores en uno:*
+
+`git commit -am "Mensaje"`
+
+*Historial de commits:*
+
+`git log`
+
+
+## Comandos Básicos II
+
+*Ayuda al listado anterior:*
+
+`git help log`
+
+*Listar los 5 commits más recientes:*
+
+`git log -n 5`
+
+*Listar los commits desde una fecha:*
+
+`git log --since=2018-09-18`
+
+*Listar los commits por autor:*
+
+`git log --author="Alejandro"`
+
+*Ver cambios en el directorio:*
+
+`git status`
+
+
+## Comandos Básicos III
+
+*Ver diferencia entre ficheros en el directorio y el repositorio de git:*
+
+`git fiff`
+
+*Ver diferencia entre ficheros en el staging y el repositorio:*
+
+`git diff --staged`
+
+*Eliminar Archivos:*
+
+~~~
+git rm archivo
+git commit -m "mensaje"
+~~~
+
+*Mover o renombrar archivos:*
+
+~~~
+git mv antoguo nuevo
+git commit -m "mensaje"
+~~~
+
 ## Comandos Ramas I
 
 *Ver listado de ramas:*
@@ -72,8 +176,6 @@ git stash pop nombre_stash
 ~~~
 
 ![Git no es GitHub](Github2.png)
-
-
 
 
 
