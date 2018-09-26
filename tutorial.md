@@ -102,7 +102,7 @@ git mv antoguo nuevo
 git commit -m "mensaje"
 ~~~
 
-## Comandos básicos IV
+## Comandos Básicos IV
 
 *Deshacer cambios con git:*
 
@@ -124,7 +124,7 @@ git commit -m "mensaje"
 
 `git revert <id_commit>`
 
-## Comandos básicos V
+## Comandos Básicos V
 
 *Deshacer multiples cambios en el repositorio:*
 
@@ -146,7 +146,7 @@ git commit -m "mensaje"
 
 `.gitignore`
 
-## Comandos básicos VI
+## Comandos Básicos VI
 
 *Listar el contenido del repositorio de git:*
 
@@ -165,7 +165,7 @@ git commit -m "mensaje"
 `git log --oneline -3`
 
 
-## Comandos básicos VII
+## Comandos Básicos VII
 
 *Examinar el contenido de un commit:*
 
