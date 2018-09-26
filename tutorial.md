@@ -108,11 +108,11 @@ git commit -m "mensaje"
 
 `Git Checkout -- Nombre_fichero`
 
-*Retirar archivos del staging: *
+*Retirar archivos del staging:*
 
 `git reset HEAD nombre_fichero`
 
-*Complementar último commit: *
+*Complementar último commit:*
  
 `git commit --amend -m "Mensaje"`
 
