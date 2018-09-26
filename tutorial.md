@@ -5,37 +5,37 @@
 
 *Añadir repositorio remoto:*
  
-	`git remote add origin url`
+`git remote add origin url`
 
 *Ver repositorios remotos:*
 
-	`git remote -v`
+`git remote -v`
 
 *Eliminar repositorio remoto:*
 
-	`git remote rm origin`
+`git remote rm origin`
 
 *Añadir cambios del repositorio local al remoto:*
 
-	`git push -u origin master`
+`git push -u origin master`
 
 *Añadir cambios del repositorio remoto al local:*
 	
-	`git pull`
+`git pull`
 
 ## Comandos GitHub II
 
 *Ver branches remotos:*
 
-	`git branch -r`
+`git branch -r`
 
 *Ver todos los branches:*
 
-	`git branch -a`
+`git branch -a`
 
 *Clonar un repositorio remoto:*
 
-	`git clone url`
+`git clone url`
 
 ## Dar seguimiento a branches remotos
 
@@ -59,4 +59,4 @@
 ~~~
 * En un solo paso:
 
-	`git pull`
+`git pull`
