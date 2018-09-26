@@ -1,7 +1,7 @@
 # *INTRODUCCION A GITHUB*
 
 
-### Comandos GitHub I
+## Comandos GitHub I
 
 *Añadir repositorio remoto:*
  
@@ -23,7 +23,7 @@
 	
 	`git pull`
 
-### Comandos GitHub II
+## Comandos GitHub II
 
 *Ver branches remotos:*
 
