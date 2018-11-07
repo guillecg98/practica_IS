@@ -2,7 +2,7 @@
 
 ## Primeramente describiremos cuáles son las partes interesadas del Proyecto:
 
-1. Profesor 
+1. Profesor
 2. Alumnos
 
 ## Datos que se van a almacenar en la aplicación:
@@ -10,7 +10,7 @@
 1. DNI
 2. Nombre del alumno
 3. Apellidos del alumno
-4. Teléfono 
+4. Teléfono
 5. Fecha de nacimiento
 6. Dirección
 7. Email de la UCO
@@ -21,14 +21,14 @@
 
 # Requisitos Funcionales
 
-* Cargar datos de un fichero
-* Añadir alumno
-* Guardar datos en fichero 
-* Mostrar 1 alumno
-* Mostrar todos los alumnos
-* Mostrar un grupo de alumnos
-* Modificar alumno
-* Borrar alumno
+* Cargar datos de un fichero. Prioridad: 1
+* Añadir alumno. Prioridad: 1
+* Guardar datos en fichero. Prioridad: 2
+* Mostrar 1 alumno. Prioridad: 3
+* Mostrar todos los alumnos. Prioridad: 3
+* Mostrar un grupo de alumnos. Prioridad: 3
+* Modificar alumno. Prioridad: 4
+* Borrar alumno. Prioridad: 5
 
 # Requisitos No Funcionales
 
@@ -38,4 +38,3 @@
 * Lenguaje de documentación será Markdown
 * La visualización de los datos será obligatoriamente por línea de comandos y HTML o Markdown a elegir uno de los dos
 * El formato de los ficheros de los datos será binario
-
