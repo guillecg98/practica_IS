@@ -8,19 +8,23 @@
 ## Datos que se van a almacenar en la aplicación:
 
 1. DNI
-2. Nombre del alumno
-3. Apellidos del alumno
-4. Teléfono
-5. Fecha de nacimiento
-6. Dirección
-7. Email de la UCO
-8. Curso más alto en el que el alummno esté matriculado
-9. Grupo al que pertenece dentro de la Asignatura
-10. Id indicando si el alumno es líder o no de un grupo
+2. Username (profesor)
+3. Password (profesor)
+4. Nombre del alumno
+5. Apellidos del alumno
+6. Teléfono
+7. Fecha de nacimiento
+8. Dirección
+9. Email de la UCO
+10. Curso más alto en el que el alummno esté matriculado
+11. Grupo al que pertenece dentro de la Asignatura
+12. Id indicando si el alumno es líder o no de un grupo
+13. Id indicando si el profesor es coordinador o ayudante
 
 
 # Requisitos Funcionales
 
+* Login Profesor. Prioridad: 0
 * Cargar datos de un fichero. Prioridad: 1
 * Añadir alumno. Prioridad: 1
 * Guardar datos en fichero. Prioridad: 2
@@ -29,6 +33,8 @@
 * Mostrar un grupo de alumnos. Prioridad: 3
 * Modificar alumno. Prioridad: 4
 * Borrar alumno. Prioridad: 5
+* Crear copia de seguridad. Prioridad: 6
+* Cargar copia de seguridad. Prioridad: 6
 
 # Requisitos No Funcionales
 
