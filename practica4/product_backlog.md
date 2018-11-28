@@ -50,18 +50,18 @@
 
 9. Borrar Alumno ID: 08
 
-  Prioridad Cliente: 5
+    Prioridad Cliente: 5
 
-  **Prioridad SCRUM:**
+    **Prioridad SCRUM:**
 
 10. Crear copia de seguridad ID:09
 
-  Prioridad Cliente: 6
+    Prioridad Cliente: 6
 
-  **Prioridad SCRUM:**
+    **Prioridad SCRUM:**
 
 11. Cargar copia de seguridad ID:10
 
-  Prioridad Cliente: 6
+    Prioridad Cliente: 6
 
-  **Prioridad SCRUM:**
+    **Prioridad SCRUM:**
