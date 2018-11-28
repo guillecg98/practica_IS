@@ -23,3 +23,45 @@
     Prioridad Cliente: 2
 
     **Prioridad SCRUM**
+
+5. Mostrar Un Alumno ID:04
+
+    Prioridad Cliente: 3
+
+    **Prioridad SCRUM:**
+
+6. Mostrar Todos Alumnos ID:05
+
+    Prioridad Cliente: 3
+
+    **Prioridad SCRUM:**
+
+7. Mostrar Almunos de un Grupo ID:06
+
+    Prioridad Cliente: 3
+
+    **Prioridad SCRUM:**
+
+8. Modificar Alumno ID:07
+
+    Prioridad Cliente: 4
+
+    **Prioridad SCRUM:**
+
+9. Borrar Alumno ID: 08
+
+  Prioridad Cliente: 5
+
+  **Prioridad SCRUM:**
+
+10. Crear copia de seguridad ID:09
+
+  Prioridad Cliente: 6
+
+  **Prioridad SCRUM:**
+
+11. Cargar copia de seguridad ID:10
+
+  Prioridad Cliente: 6
+
+  **Prioridad SCRUM:**
