@@ -5,9 +5,11 @@
 
 #include <iostream>
 #include <vector>
+
 #include <fstream>
 #include "alumno.hpp"
 #include "grupo.hpp"
+#include <string>
 
 
 class Agenda{
@@ -36,6 +38,7 @@ public:
       for(int i=0; i<v.size(); i++)
       {
         vGrupos[i]=v[i];
+
       }
     }
 
@@ -48,6 +51,7 @@ public:
     {
       return vGrupos;
     }
+
 
     inline void cargarDatosFichero(std::string nombre)
     {
@@ -75,6 +79,13 @@ public:
       }
       f.close();
     }
+
+    bool isLider(std::string dni);
+    void mostrarAlumnosTerminal();
+    void mostrarAlumnosHTML();
+    bool searchAlumnoDNI(string dni);
+    void addAlumno(Alumno alumno);
+    void deleteAlumno(Alumno alumno);
 
 };
 
