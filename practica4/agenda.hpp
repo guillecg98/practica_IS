@@ -8,7 +8,6 @@
 #include <string>
 #include "alumno.hpp"
 #include "grupo.hpp"
-using namespace std;
 
 class Agenda{
 private:
@@ -49,10 +48,12 @@ public:
       return vGrupos;
     }
 
+    bool isLider(std::string dni);
+    void mostrarAlumnosTerminal();
+    void mostrarAlumnosHTML();
     bool searchAlumnoDNI(string dni);
     void addAlumno(Alumno alumno);
     void deleteAlumno(Alumno alumno);
-
 };
 
 
