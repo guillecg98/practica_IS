@@ -2,7 +2,8 @@
 #define ALUMNO_HPP
 
 #include <iostream>
-#include <cstring>
+#include <string>
+
 //clase alumno
 class Alumno
 {
@@ -62,6 +63,8 @@ public:
   inline void setCurso(int curso) { curso_ = curso;}
   inline void setGrupo(int grupo) { grupo_ = grupo;}
   inline void setLider(int lider) { lider_ = lider;}
+
+  
 };
 
 #endif

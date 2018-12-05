@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include "alumno.hpp"
 #include "grupo.hpp"
 
@@ -25,7 +26,7 @@ public:
     {
       for(int i=0; i<v.size(); i++)
       {
-        v[i]=vAlumnos[i];
+        vAlumnos[i]=v[i];
       }
     }
 
@@ -33,7 +34,7 @@ public:
     {
       for(int i=0; i<v.size(); i++)
       {
-        v[i]=vGrupos[i];
+       vGrupos[i]=v[i];
       }
     }
 
@@ -50,6 +51,9 @@ public:
     bool isLider(std::string dni);
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
+    bool searchAlumnoDNI(string dni);
+    void addAlumno(Alumno alumno);
+    void deleteAlumno(Alumno alumno);
 };
 
 
