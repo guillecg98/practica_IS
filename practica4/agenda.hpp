@@ -52,34 +52,7 @@ public:
       return vGrupos;
     }
 
-
-    inline void cargarDatosFichero(std::string nombre)
-    {
-      std::ifstream f;
-      f.open(nombre, std::ios::binary);
-      if(!f.is_open())
-      {
-        std::cout<<"El fichero no se pudo abrir"<<\n;
-      }
-      else
-      {
-        //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
-        for(int i=0; i<vAlumnos.size(); i++)
-        {
-          std::ios::f>>"Alumno">>\n>>vAlumnos[i].getDni()>>\n;
-          std::ios::f>>vAlumnos[i].getNombre()>>\n;
-          std::ios::f>>vAlumnos[i].getApellidos()>>\n;
-          std::ios::f>>vAlumnos[i].getTelefono()>>\n;
-          std::ios::f>>vAlumnos[i].getFechaNacimiento()>>\n;
-          std::ios::f>>vAlumnos[i].getEmail()>>\n;
-          std::ios::f>>vAlumnos[i].getCurso()>>\n;
-          std::ios::f>>vAlumnos[i].getGrupo()>>\n;
-          std::ios::f>>vAlumnos[i].getLider()>>\n;
-        }
-      }
-      f.close();
-    }
-
+    void cargarDatosFichero(std::string nombre);
     bool isLider(std::string dni);
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
