@@ -1,19 +1,18 @@
 #ifndef ALUMNO_HPP
 #define ALUMNO_HPP
 
-#inlcude <iostream>
-using namespace std;
-
+#include <iostream>
+#include <cstring>
 //clase alumno
 class Alumno
 {
 private:
-  string dni_;
-  string nombre_;
-  string apellidos_;
+  std::string dni_;
+  std::string nombre_;
+  std::string apellidos_;
   int telefono_;
-  string fechaNacimiento_;
-  string email_;
+  std::string fechaNacimiento_;
+  std::string email_;
   int curso_;
   int grupo_;
   int lider_; // == 1 si el alumno es lider de un grupo; == 0 si el alumno no es lider
@@ -32,7 +31,7 @@ public:
     setLider(0);
   }
 
-  Alumno(string dni, string nombre, string apellidos, int telefono, string fechaNacimiento, string email, int curso, int grupo, int lider) {
+  Alumno(std::string dni, std::string nombre, std::string apellidos, int telefono, std::string fechaNacimiento, std::string email, int curso, int grupo, int lider) {
     setDni(dni);
     setNombre(nombre);
     setApellidos(apellidos);
@@ -44,22 +43,22 @@ public:
     setLider(lider);
   }
 
-  inline string getDni() const { return dni_;}
-  inline string getNombre() const { return nombre_;}
-  inline string getApellidos() const { return apellidos_;}
+  inline std::string getDni() const { return dni_;}
+  inline std::string getNombre() const { return nombre_;}
+  inline std::string getApellidos() const { return apellidos_;}
   inline int getTelefono() const { return telefono_;}
-  inline string getFechaNacimiento() const { return fechaNacimiento_;}
-  inline string getEmail() const { return email_;}
+  inline std::string getFechaNacimiento() const { return fechaNacimiento_;}
+  inline std::string getEmail() const { return email_;}
   inline int getCurso() const { return curso_;}
   inline int getGrupo() const { return grupo_;}
   inline int getLider() const { return lider_;}
 
-  inline void setDni(string dni) { dni_ = dni;}
-  inline void setNombre(string nombre) { nombre_ = nombre;}
-  inline void setApellidos(string apellidos) { apellidos_ = apellidos;}
+  inline void setDni(std::string dni) { dni_ = dni;}
+  inline void setNombre(std::string nombre) { nombre_ = nombre;}
+  inline void setApellidos(std::string apellidos) { apellidos_ = apellidos;}
   inline void setTelefono(int telefono) { telefono_ = telefono;}
-  inline void setFechaNacimiento(string fechaNacimiento) { fechaNacimiento_ = fechaNacimiento;}
-  inline void setEmail(string email) { email_ = email;}
+  inline void setFechaNacimiento(std::string fechaNacimiento) { fechaNacimiento_ = fechaNacimiento;}
+  inline void setEmail(std::string email) { email_ = email;}
   inline void setCurso(int curso) { curso_ = curso;}
   inline void setGrupo(int grupo) { grupo_ = grupo;}
   inline void setLider(int lider) { lider_ = lider;}
