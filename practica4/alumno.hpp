@@ -1,0 +1,3 @@
+#inlcude <iostream>
+
+//clase alumno
