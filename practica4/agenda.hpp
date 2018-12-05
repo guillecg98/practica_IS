@@ -47,6 +47,10 @@ public:
     {
       return vGrupos;
     }
+
+    bool searchAlumnoDNI(int dni);
+    void addAlumno(Alumno alumno);
+
 };
 
 

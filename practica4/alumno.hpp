@@ -1,7 +1,8 @@
 #ifndef ALUMNO_HPP
 #define ALUMNO_HPP
 
-#inlcude <iostream>
+#include <iostream>
+#include <string>
 using namespace std;
 
 //clase alumno
@@ -63,6 +64,8 @@ public:
   inline void setCurso(int curso) { curso_ = curso;}
   inline void setGrupo(int grupo) { grupo_ = grupo;}
   inline void setLider(int lider) { lider_ = lider;}
+
+  
 };
 
 #endif
