@@ -26,6 +26,7 @@ public:
 
     bool comprobarLider();//comprueba si hay un lider en el grupo indicado
 
+
 };
 
 #endif
