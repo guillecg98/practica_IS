@@ -11,6 +11,7 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
   }
   else
   {
+    //creo qeu se deberia de crear objeto alumno para poder meterlño en el vector
     //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
     for(int i=0; i<vAlumnos.size(); i++)
     {
@@ -119,4 +120,31 @@ void Agenda::deleteAlumno(Alumno alumno)//EL metodo debe borrar por dni
   } else{
     printf("La lista está vacia");
   }
+}
+
+void Agenda::guardarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
+{
+  std::ifstream f;
+  f.open(nombre, std::ios::binary);
+  if(!f.is_open())
+  {
+    std::cout<<"El fichero no se encuentra"<<\n;
+  }
+  else
+  {
+    //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
+    for(int i=0; i<vAlumnos.size(); i++)
+    {
+      std::ios::f<<"Alumno">>\n>>vAlumnos[i].getDni()>>\n;
+      std::ios::f<<vAlumnos[i].getNombre()<<\n;
+      std::ios::f<<vAlumnos[i].getApellidos()<<\n;
+      std::ios::f<<vAlumnos[i].getTelefono()<<\n;
+      std::ios::f<<vAlumnos[i].getFechaNacimiento()<<\n;
+      std::ios::f<<vAlumnos[i].getEmail()<<\n;
+      std::ios::f<<vAlumnos[i].getCurso()<<\n;
+      std::ios::f<<vAlumnos[i].getGrupo()<<\n;
+      std::ios::f<<vAlumnos[i].getLider()<<\n;
+    }
+  }
+  f.close();
 }
