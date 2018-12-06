@@ -5,12 +5,11 @@
 
 #include <iostream>
 #include <vector>
-
+#include <string>
 #include <fstream>
 #include "alumno.hpp"
 #include "grupo.hpp"
-#include <string>
-
+using namespace std;
 
 class Agenda{
 private:
@@ -19,11 +18,7 @@ private:
 
 public:
 
-    Agenda()
-    {
-      setvAlumnos(NULL);
-      setvGrupos(NULL);
-    }
+    Agenda();
 
     inline void setvAlumnos(std::vector<Alumno> v)
     {
@@ -37,8 +32,7 @@ public:
     {
       for(int i=0; i<v.size(); i++)
       {
-        vGrupos[i]=v[i];
-
+       vGrupos[i]=v[i];
       }
     }
 
