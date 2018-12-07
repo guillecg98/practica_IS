@@ -52,8 +52,8 @@ public:
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
     bool searchAlumnoDNI(string dni);
-    void addAlumno(Alumno alumno);
-    void deleteAlumno(Alumno alumno);
+    bool addAlumno(Alumno alumno);
+    bool deleteAlumno(Alumno alumno);
 
 };
 
