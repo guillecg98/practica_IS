@@ -101,24 +101,26 @@ int Agenda::searchAlumno(std::string dni) //devuelve la posicion del alumno que 
 }
 
 
-void Agenda::addAlumno(Alumno alumno)
+bool Agenda::addAlumno(Alumno alumno)
 {
   if(vAlumnos.size() < 150){ //SI en la clase hay menos de 150 alumnos, se puede añadir un alumno
-    if(searchAlumno(alumno.getDni()) == 0)
-    {
       vAlumnos.push_back(alumno);
-    }
-  } else{
-      printf("La lista de alumnos está llena");}
+      return true;
+  }
+  return false;
 }
 
-void Agenda::deleteAlumno(Alumno alumno)//EL metodo debe borrar por dni
+bool Agenda::deleteAlumno(std::string dni)//EL metodo debe borrar por dni
 {
+  int numDni;
+
   if(!vAlumnos.empty())
   {
-    vAlumnos.pop_back();
+    numDni = searchAlumno(dni);
+    vAlumnos.pop_back(numDni);//esto creo que se hacia asi, hay que indicar qué alumno hay que borrar
+    return true;
   } else{
-    printf("La lista está vacia");
+    return false;
   }
 }
 
