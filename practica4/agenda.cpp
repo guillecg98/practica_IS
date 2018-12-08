@@ -30,33 +30,21 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
   f.close();
 } */
 
-/*
+
 void Agenda::guardarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
-  std::ifstream f;
+  std::ofstream f;
   f.open(nombre, std::ios::binary);
-  if(!f.is_open())
-  {
-    std::cout<<"El fichero no se encuentra"<<\n;
-  }
-  else
-  {
+  f.write((char *)&vAlumnos, vAlumnos.size());
     //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
-    for(int i=0; i<vAlumnos.size(); i++)
+    /*for(int i=0; i<vAlumnos.size(); i++)
     {
-      std::ios::f<<"Alumno">>\n>>vAlumnos[i].getDni()>>\n;
-      std::ios::f<<vAlumnos[i].getNombre()<<\n;
-      std::ios::f<<vAlumnos[i].getApellidos()<<\n;
-      std::ios::f<<vAlumnos[i].getTelefono()<<\n;
-      std::ios::f<<vAlumnos[i].getFechaNacimiento()<<\n;
-      std::ios::f<<vAlumnos[i].getEmail()<<\n;
-      std::ios::f<<vAlumnos[i].getCurso()<<\n;
-      std::ios::f<<vAlumnos[i].getGrupo()<<\n;
-      std::ios::f<<vAlumnos[i].getLider()<<\n;
-    }
-  }
+      f << "Alumno " << i+1 << ": " << vAlumnos[i].getDni() << "," << vAlumnos[i].getNombre() << "," << vAlumnos[i].getApellidos() << "," << vAlumnos[i].getTelefono()
+      << "," << vAlumnos[i].getFechaNacimiento() << "," << vAlumnos[i].getEmail() << "," << vAlumnos[i].getCurso() << "," << vAlumnos[i].getGrupo() << "," << vAlumnos[i].getLider()
+      << "\n";
+    }*/
   f.close();
-}*/
+}
 
 bool Agenda::isLider(std::string dni)//comprueba si un alumno indicado por su dni es lider o no
 {
@@ -110,9 +98,10 @@ void Agenda::mostrarAlumnosHTML() //genera un fichero HTML "alumnos.html" con lo
     std::ofstream myfile;
     std::string es_lider;
     myfile.open("alumno.html");
-    myfile << "<html> <head>Alumnos</head> <body> <table border=3> <head> <td>DNI</td> <td>Nombre</td> <td>Apellidos</td> <td>Telefono</td> <td>Fecha de Nacimiento</td> <td>Email</td> <td>Curso</td> <td>Grupo</td> <td>Lider</td> </head> <tr>";
+    myfile << "<html> <body> <h2>Lista de Alumnos:</h2> <table border=3> <head> <td><b>Alumno</b></td> <td><b>DNI</b></td> <td><b>Nombre</b></td> <td><b>Apellidos</b></td> <td><b>Telefono</b></td> <td><b>Fecha de Nacimiento</b></td> <td><b>Email</b></td> <td><b>Curso</b></td> <td><b>Grupo</b></td> <td><b>Lider</b></td> </head>";
     for (int i = 0; i<vAlumnos.size(); i++)
     {
+      myfile << "<tr>";
       if( isLider(vAlumnos[i].getDni()) == true )
       {
         es_lider = "Sí";
@@ -120,12 +109,13 @@ void Agenda::mostrarAlumnosHTML() //genera un fichero HTML "alumnos.html" con lo
         es_lider = "No";
       }
 
-      myfile << "<td>" << vAlumnos[i].getDni()  << "</td><td>" << vAlumnos[i].getNombre() << "</td><td>" << vAlumnos[i].getApellidos() << "</td><td>" << vAlumnos[i].getTelefono()
+      myfile << "<td> "<< i+1 << "</td><td>" << vAlumnos[i].getDni()  << "</td><td>" << vAlumnos[i].getNombre() << "</td><td>" << vAlumnos[i].getApellidos() << "</td><td>" << vAlumnos[i].getTelefono()
       << "</td><td>" << vAlumnos[i].getFechaNacimiento() << "</td><td>" << vAlumnos[i].getEmail() << "</td><td>" << vAlumnos[i].getCurso() << "</td><td>" << vAlumnos[i].getGrupo()
       << "</td><td>" << es_lider << "</td>";
+      myfile << "</tr>";
     }
 
-    myfile << "</tr></table></body></html>";
+    myfile << "</table></body></html>";
     myfile.close();
   }
 }
