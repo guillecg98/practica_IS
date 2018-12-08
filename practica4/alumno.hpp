@@ -64,7 +64,7 @@ public:
   inline void setGrupo(int grupo) { grupo_ = grupo;}
   inline void setLider(int lider) { lider_ = lider;}
 
-  
+
 };
 
 #endif

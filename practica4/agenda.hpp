@@ -12,15 +12,17 @@
 using namespace std;
 
 class Agenda{
-private:
-  std::vector<Alumno> vAlumnos;
-  std::vector<Grupo> vGrupos;
+  private:
+    std::vector<Alumno> vAlumnos;
+    std::vector<Grupo> vGrupos;
 
-public:
+  public:
 
-    Agenda();
+    inline std::vector<Alumno> getVectorAlumnos() const { return vAlumnos;}
 
-    inline void setvAlumnos(std::vector<Alumno> v)
+    inline std::vector<Grupo> getVectorGrupos() const { return vGrupos;}
+
+    inline void setvAlumnos(std::vector<Alumno> v) //esta funcion la utilizaremos para cargar los datos de un fichero al vector de alumnos.
     {
       for(int i=0; i<v.size(); i++)
       {
@@ -36,24 +38,14 @@ public:
       }
     }
 
-    inline std::vector<Alumno> getVectorAlumnos()
-    {
-      return vAlumnos;
-    }
-
-    inline std::vector<Grupo> getVectorGrupos()
-    {
-      return vGrupos;
-    }
-
-    void cargarDatosFichero(std::string nombre);
-    void guardarDatosFichero(std::string nombre);
+    //void cargarDatosFichero(std::string nombre);
+    //void guardarDatosFichero(std::string nombre);
     bool isLider(std::string dni);
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
-    bool searchAlumnoDNI(string dni);
+    int searchAlumnoDNI(std::string dni);
     bool addAlumno(Alumno alumno);
-    bool deleteAlumno(Alumno alumno);
+    bool deleteAlumno(std::string dni);
 
 };
 
