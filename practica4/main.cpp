@@ -13,7 +13,7 @@ int main()
 {
 
  int opcion,op,curso,grupo,lider,telefono;
- std::string dni,nombre,apellidos,fechaNacimiento,email;
+ std::string dni,nombre,apellidos,fechaNacimiento,email,file;
  Agenda agenda;
 
  do
@@ -37,6 +37,13 @@ int main()
      break;
 
      case 2:
+      //Guardar datos en fichero
+      std::cout<<"Introduce el nombre del fichero\n";
+      std::cin>>file;
+      agenda.guardarDatosFichero(file);
+      break;
+
+     case 3:
       //Mostrar todos los alumnos
       std::cout<<"¿Cómo desea visualizarlo?\n [1] Crear Fichero HTML:\n [2] En la Terminal:\n";
       std::cin>>op;
@@ -55,34 +62,36 @@ int main()
       }
      break;
 
-     case 3:
+     case 4:
       //Añadir alumno
+      std::cout<<"Introduce los Datos del nuevo alumno\n";
       //se piden los datos del alumno por pantalla
-      std::cout<<"DNI:\n";
+      std::cout<<"1.DNI:\n";
       std::cin>>dni;
       alumno.setDni(dni);
-      std::cout<<"Nombre:\n";
+      std::cout<<"2.Nombre:\n";
       std::cin>>nombre;
       alumno.setNombre(nombre);
-      std::cout<<"Apellidos:\n";
-      std::cin>>apellidos;
+      std::cout<<"3.Apellidos:\n";
+      std::getline(std::cin,apellidos);
+      std::getline(std::cin,apellidos);
       alumno.setApellidos(apellidos);
-      std::cout<<"Telefono:\n";
+      std::cout<<"4.Telefono:\n";
       std::cin>>telefono;
       alumno.setTelefono(telefono);
-      std::cout<<"Fecha de Nacimiento:\n";
+      std::cout<<"5.Fecha de Nacimiento:\n";
       std::cin>>fechaNacimiento;
       alumno.setFechaNacimiento(fechaNacimiento);
-      std::cout<<"Email:\n";
+      std::cout<<"6.Email:\n";
       std::cin>>email;
       alumno.setEmail(email);
-      std::cout<<"Curso:\n";
+      std::cout<<"7.Curso:\n";
       std::cin>>curso;
       alumno.setCurso(curso);
-      std::cout<<"Grupo:\n";
+      std::cout<<"8.Grupo:\n";
       std::cin>>grupo;
       alumno.setGrupo(grupo);
-      std::cout<<"Lider: (0=NO, 1=SI)\n";
+      std::cout<<"9.Lider: (0=NO, 1=SI)\n";
       std::cin>>lider;
       alumno.setLider(lider);
 
@@ -100,7 +109,7 @@ int main()
 
      break;
 
-     case 4:
+     case 5:
       //Borrar alumno
       std::cout<<"Introduzca el DNI del alumno que quiere eliminar\n";
       //se solicita el dni del alumno que se quiere Borrar
@@ -149,20 +158,27 @@ int menu()
 	PLACE(posicion++,10);
 	std::cout <<  "[1] Cargar Fichero de Alumnos";
 
+  posicion++;
+
+	PLACE(posicion++,10);
+	std::cout <<  "[2] Guardar los datos en un Fichero";
+
 	//////////////////////////////////////////////////////////////////////////////
 	posicion++;
 
 	PLACE(posicion++,10);
-	std::cout << "[2] Mostrar Todos los Alumnos";
+	std::cout << "[3] Mostrar Todos los Alumnos";
+
+  posicion++;
 
 	PLACE(posicion++,10);
-	std::cout << "[3] Añadir Alumno";
+	std::cout << "[4] Añadir Alumno";
 
 	//////////////////////////////////////////////////////////////////////////////
 	posicion++;
 
 	PLACE(posicion++,10);
-	std::cout << "[4] Borrar Alumno";
+	std::cout << "[5] Borrar Alumno";
 
 	posicion++;
 
