@@ -8,17 +8,9 @@
 
 1. Login: ID:00 ; Prioridad Cliente: 0 ; **Prioridad SCRUM: 3**.
 
-2. Cargar Fichero ID:01
+2. Cargar Fichero: ID:01 - Prioridad Cliente: 1 - **Prioridad SCRUM: 1**.
 
-    Prioridad Cliente: 1
-
-    **Prioridad SCRUM: 1**
-
-3. Añadir Alumno ID:02
-
-    Prioridad Cliente: 1
-
-    **Prioridad SCRUM: 1**
+3. Añadir Alumno: ID:02, Prioridad Cliente: 1, **Prioridad SCRUM: 1**.
 
 4. Guardar En Fichero ID:03
 
