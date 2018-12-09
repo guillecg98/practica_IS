@@ -55,4 +55,13 @@
 
 5. Borrar Alumno: ID:08 - Horas estimadas: 6 - Javier.
 
-  
+  *La siguiente imagen refleja el resultado de las tareas realizadas el dia de la entrega del primer Sprint_*
+
+![Sprint-Backlog](sdfd)
+
+## BURNDOWN CHART:
+
+  *La gráfica que se muestra a continuación es representa el seguimiento del trabajo realizado durante el primer Sprint en forma de
+  "Burn Down Chart":*
+
+![BurnDown-Chart](dfs)
