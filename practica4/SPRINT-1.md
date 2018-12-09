@@ -3,7 +3,7 @@
 ## PRODUCT BACKLOG:
 
   *En esta sección hemos organizado las tareas mediante su ID, asignando unas prioridades que tendremos
-  en cuenta a la hora de desarrollar los diferentes sprints de la practica de implementación de código.
+  en cuenta a la hora de desarrollar los diferentes Sprints de la practica de implementación de código.
   A continuación se muestran dichas tareas con sus respectivas prioridades:*
 
 1. Login: ID:00 - Prioridad Cliente: 0 - **Prioridad SCRUM: 3**.
@@ -29,16 +29,16 @@
 11. Cargar copia de seguridad ID:10 - Prioridad Cliente: 6 - **Prioridad SCRUM: 3**
 
 
-  *Para representar de una manera más visual la gestión de prioridades de tareas, podemos ver en la siguiente tabla
-  los datos justo antes de empezar el desarrollo de la practica*
+  *Para representar de una manera más visual la gestión y organización de tareas en el Sprint, podemos ver
+  en la siguiente tabla como se quedan éstas justo antes de empezar el desarrollo de la practica*
 
-![Product-Backlog](https://github.com/i62cogag/practica_IS/blob/master/practica4/capturaSCRUM1.png)
+![Product-Backlog](https://github.com/i62cogag/practica_IS/blob/master/practica4/imagenes/capturaSCRUM1.png)
 
 ## SPRINT BACKLOG:
 
-  *En este apartado se explican las tareas que hemos desarrollado durante el primer sprint, así como las
+  *En este apartado se explican las tareas que hemos desarrollado durante el primer Sprint, así como las
   horas estimadas para cada tarea y el reparto de las mismas para cada uno de los integrantes del grupo.
-  Para poder tener un código mínimamente funcional de cara a la entrega del primer sprint (lo que se conoce como mvp o
+  Para poder tener un código mínimamente funcional de cara a la entrega del primer Sprint (lo que se conoce como mvp o
   producto mínimo viable) hemos decidido realizar las siguientes tareas:*
 
 ### Días de Desarrollo: 9.
@@ -55,13 +55,13 @@
 
 5. Borrar Alumno: ID:08 - Horas estimadas: 6 - Javier.
 
-  *La siguiente imagen refleja el resultado de las tareas realizadas el dia de la entrega del primer Sprint_*
+  *La siguiente imagen refleja el resultado de las tareas realizadas el dia de la entrega del primer Sprint*
 
-![Sprint-Backlog](sdfd)
+![Sprint-Backlog](https://github.com/i62cogag/practica_IS/blob/master/practica4/imagenes/SCRUM2.png)
 
 ## BURNDOWN CHART:
 
   *La gráfica que se muestra a continuación es representa el seguimiento del trabajo realizado durante el primer Sprint en forma de
   "Burn Down Chart":*
 
-![BurnDown-Chart](dfs)
+![BurnDown-Chart](https://github.com/i62cogag/practica_IS/blob/master/practica4/imagenes/20181209051755_hd.png)
