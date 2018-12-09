@@ -1,10 +1,12 @@
-# PRODUCT BACKLOG:
+# Sprint 1:
 
-1. Login ID:00
+## PRODUCT BACKLOG:
 
-    Prioridad Cliente: 0
+  *En esta sección hemos organizado las tareas mediante su ID, asignando unas prioridades que tendremos
+  en cuenta a la hora de desarrollar los diferentes sprints de la practica de implementación de código.
+  A continuación se muestran dichas tareas con sus respectivas prioridades:*
 
-    **Prioridad SCRUM: 1-3**
+1. Login: ID:00 ; Prioridad Cliente: 0 ; **Prioridad SCRUM: 3**.
 
 2. Cargar Fichero ID:01
 
