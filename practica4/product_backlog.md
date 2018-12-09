@@ -32,4 +32,4 @@
   *Para representar de una manera más visual la gestión de prioridades de tareas, podemos ver en la siguiente tabla
   los datos justo antes de empezar el desarrollo de la practica*
 
-![Product-Backlog](/home/gecoga98/Imágenes/capturaSCRUM.png)
+![Product-Backlog](https://github.com/i62cogag/practica_IS/blob/master/practica4/capturaSCRUM1.png)
