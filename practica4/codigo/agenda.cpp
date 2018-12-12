@@ -1,10 +1,11 @@
 //funciones clase agenda
 #include "agenda.hpp"
 
-/*
 void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
   std::ifstream f;
+  int i = 0,telefono,curso,grupo,lider;
+  std::string dni,nombre,apellidos,fechaNacimiento,email;
   f.open(nombre, std::ios::binary);
   if(!f.is_open())
   {
@@ -12,37 +13,24 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
   }
   else
   {
-    //creo qeu se deberia de crear objeto alumno para poder meterlño en el vector
-    //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
-    for(int i=0; i<vAlumnos.size(); i++)
-    {
-      std::ios::f>>"Alumno">>\n>>vAlumnos[i].getDni()>>\n;
-      std::ios::f>>vAlumnos[i].getNombre()>>\n;
-      std::ios::f>>vAlumnos[i].getApellidos()>>\n;
-      std::ios::f>>vAlumnos[i].getTelefono()>>\n;
-      std::ios::f>>vAlumnos[i].getFechaNacimiento()>>\n;
-      std::ios::f>>vAlumnos[i].getEmail()>>\n;
-      std::ios::f>>vAlumnos[i].getCurso()>>\n;
-      std::ios::f>>vAlumnos[i].getGrupo()>>\n;
-      std::ios::f>>vAlumnos[i].getLider()>>\n;
+    while(!eof) {
+      f.read()
+    }
     }
   }
   f.close();
-} */
+}
 
 
 void Agenda::guardarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
   std::ofstream f;
   f.open(nombre, std::ios::binary);
-  f.write((char *)&vAlumnos, vAlumnos.size());
-    //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
-    /*for(int i=0; i<vAlumnos.size(); i++)
-    {
-      f << "Alumno " << i+1 << ": " << vAlumnos[i].getDni() << "," << vAlumnos[i].getNombre() << "," << vAlumnos[i].getApellidos() << "," << vAlumnos[i].getTelefono()
-      << "," << vAlumnos[i].getFechaNacimiento() << "," << vAlumnos[i].getEmail() << "," << vAlumnos[i].getCurso() << "," << vAlumnos[i].getGrupo() << "," << vAlumnos[i].getLider()
-      << "\n";
-    }*/
+
+  for(int i=0; i<vAlumnos.size(); i++)
+  {
+    f.write((char *)&vAlumnos[i],sizeof(vAlumnos[i]));
+  }
   f.close();
 }
 
