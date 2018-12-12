@@ -24,11 +24,14 @@ int main()
   else
   {
     std::cout << "Usuario correcto" << '\n';
-
+    if(p.loginId(username)){std::cout << "Usuario Privilegiado" << '\n';}
+    else{std::cout << "Usuario no privilegiado" << '\n';}
     std::cout << "Ahora, introduzca su contraseña" << '\n';
     std::cin >> password;
+
     if(p.loginPassword(username, password) == false){std::cout << "Contraseña incorrecta" << '\n'; return -1;}
   }
+
 
 
 
