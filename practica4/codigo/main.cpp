@@ -1,7 +1,7 @@
 #include "agenda.hpp"
 #include "alumno.hpp"
 //#include "grupo.hpp"
-//#include "profesor.hpp"
+#include "profesor.hpp"
 #include "macros.hpp"
 
 #include <iostream>
@@ -13,8 +13,24 @@ int main()
 {
 
  int opcion,op,curso,grupo,lider,telefono;
+ std::string username, password;
  std::string dni,nombre,apellidos,fechaNacimiento,email,file;
  Agenda agenda;
+ Profesor p;
+
+  std::cout << "Introduzca su Nombre de Usuario" << '\n';
+  std::cin >> username;
+  if(!p.loginUsername(username)){std::cout << "Usuario incorrecto" << '\n'; return -1;}
+  else
+  {
+    std::cout << "Usuario correcto" << '\n';
+
+    std::cout << "Ahora, introduzca su contraseña" << '\n';
+    std::cin >> password;
+    if(p.loginPassword(username, password) == false){std::cout << "Contraseña incorrecta" << '\n'; return -1;}
+  }
+
+
 
  do
  {

@@ -34,7 +34,7 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
 void Agenda::guardarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
   std::ofstream f;
-  f.open(nombre, std::ios::binary);
+  f.open(nombre.c_str(), std::ios::binary);
   f.write((char *)&vAlumnos, vAlumnos.size());
     //std::vector<Alumno> vAlumnos(std::istreambuf_iterator<char>(f), {});
     /*for(int i=0; i<vAlumnos.size(); i++)
