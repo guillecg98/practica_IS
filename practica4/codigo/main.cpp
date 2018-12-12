@@ -129,6 +129,14 @@ int main()
       }
      break;
 
+     case 6:
+     std::cout<<"Introduzca numero de grupo para mostrar alumno\n";
+
+     std::cin>>grupo;
+
+     agenda.mostrarAlumnosMismoGrupo(grupo);
+
+
    }
   }while(opcion!=0);
 
@@ -179,6 +187,13 @@ int menu()
 
 	PLACE(posicion++,10);
 	std::cout << "[5] Borrar Alumno";
+
+  	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << "[6] Mostrar alumno mismo grupo";
+
+  	//////////////////////////////////////////////////////////////////////////////
 
 	posicion++;
 

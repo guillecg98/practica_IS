@@ -8,19 +8,18 @@
 #include <string>
 #include <fstream>
 #include "alumno.hpp"
-#include "grupo.hpp"
+
 using namespace std;
 
 class Agenda{
   private:
     std::vector<Alumno> vAlumnos;
-    std::vector<Grupo> vGrupos;
+    
 
   public:
 
     inline std::vector<Alumno> getVectorAlumnos() const { return vAlumnos;}
 
-    inline std::vector<Grupo> getVectorGrupos() const { return vGrupos;}
 
     inline void setvAlumnos(std::vector<Alumno> v) //esta funcion la utilizaremos para cargar los datos de un fichero al vector de alumnos.
     {
@@ -30,13 +29,7 @@ class Agenda{
       }
     }
 
-    inline void setvGrupos(std::vector<Grupo> v)
-    {
-      for(int i=0; i<v.size(); i++)
-      {
-       vGrupos[i]=v[i];
-      }
-    }
+  
 
     //void cargarDatosFichero(std::string nombre);
     void guardarDatosFichero(std::string nombre);
@@ -46,6 +39,7 @@ class Agenda{
     int searchAlumnoDNI(std::string dni);
     bool addAlumno(Alumno alumno);
     bool deleteAlumno(std::string dni);
+    void mostrarAlumnosMismoGrupo(int grupo);
 
 };
 
