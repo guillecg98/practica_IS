@@ -27,31 +27,28 @@ void setUserName(string userName){userName_ = userName;};
 void setPassword(string password){password_ = password;};
 void setId(int id){id_ = id;};
 
-/*
-inline bool loginId(std::string username) QUEDA ESTA PARTE SOLO
+
+inline bool loginId(std::string username)
 {
   std::string cad;
-  std::string checkUsername;
-  std::string checkId;
   std::ifstream fich;
   bool res = false;
   fich.open("profesores.txt", std::ios::in);
   if(!fich.is_open()){std::cout << "Error al abrir el fichero" << '\n';}
-  while(getline(fich, cad))
+  while(!fich.eof())  //Leemos linea a linea
   {
-    if(cad.substr(0, n) == username)
+    getline(fich, cad);
+    std::size_t n = cad.find(" "); //Calculo donde queda el espacio que separa username de password
+    std::size_t pass = cad.find("-"); //Calculo donde queda el gion que separa password del Id del profesor
+
+    if(cad.substr(0, n) == username && cad.substr(pass+1) == "Y")
     {
-      if(cad.substr())
-      std::cout << cad.substr(0, n) << '\n';
-      res = true;
+        res = true;
     }
-
-      }
-
   }
 fich.close();
 return res;
-};*/
+};
 
 inline bool loginUsername(std::string username)
 {
@@ -69,7 +66,6 @@ inline bool loginUsername(std::string username)
 
     if(cad.substr(0, n) == username)
     {
-      std::cout << cad.substr(0, n) << '\n';
       res = true;
     }
 
@@ -93,8 +89,7 @@ inline bool loginPassword(std::string username, std::string password)
     getline(fich, cad);
     std::size_t n = cad.find(" ");
     std::size_t pass = cad.find("-");
-  //  std::cout << "solicita" << '\n';
-    //std::cout << cad.substr(n+1, pass - n) << '\n';
+
     if(cad.substr(0, n) == username && cad.substr(n + 1, pass - n - 1) == password)
     {
         std::cout << cad.substr(n+1, pass - n - 1) << '\n';
