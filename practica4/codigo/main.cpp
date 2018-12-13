@@ -107,7 +107,7 @@ int main()
       std::cout<<"7.Curso:\n";
       std::cin>>curso;
       alumno.setCurso(curso);
-      std::cout<<"8.Grupo:\n";
+      std::cout<<"8.Grupo: ( 0 si no pertenece a ningún grupo)\n";
       std::cin>>grupo;
       alumno.setGrupo(grupo);
       std::cout<<"9.Lider: (0=NO, 1=SI)\n";
@@ -154,10 +154,67 @@ int main()
      std::cin>>grupo;
 
      agenda.mostrarAlumnosMismoGrupo(grupo);
+    
+     break;
 
+     case 7:
+      std::cout<<"Introduce el dni del alumno que se desea mostrar\n";
+
+      std::cin>>dni;
+
+      agenda.mostrarUnAlumno(dni);
+    
+     break;
+
+     case 8:
+      //Modificar alumno
+      std::cout<<"Introduce los Datos del nuevo alumno\n";
+      //se piden los datos del alumno por pantalla
+      std::cout<<"1.DNI:\n";
+      std::cin>>dni;
+      alumno.setDni(dni);
+      std::cout<<"2.Nombre:\n";
+      std::cin>>nombre;
+      alumno.setNombre(nombre);
+      std::cout<<"3.Apellidos:\n";
+      std::getline(std::cin,apellidos);
+      std::getline(std::cin,apellidos);
+      alumno.setApellidos(apellidos);
+      std::cout<<"4.Telefono:\n";
+      std::cin>>telefono;
+      alumno.setTelefono(telefono);
+      std::cout<<"5.Fecha de Nacimiento:\n";
+      std::cin>>fechaNacimiento;
+      alumno.setFechaNacimiento(fechaNacimiento);
+      std::cout<<"6.Email:\n";
+      std::cin>>email;
+      alumno.setEmail(email);
+      std::cout<<"7.Curso:\n";
+      std::cin>>curso;
+      alumno.setCurso(curso);
+      std::cout<<"8.Grupo: ( 0 si no pertenece a ningún grupo)\n";
+      std::cin>>grupo;
+      alumno.setGrupo(grupo);
+      std::cout<<"9.Lider: (0=NO, 1=SI)\n";
+      std::cin>>lider;
+      alumno.setLider(lider);
+
+      if(agenda.searchAlumnoDNI(alumno.getDni()) != 0)//si el alumno existe en la lista
+      {
+        std::cout<<"Ya existe un alumno con ese DNI\n";
+      } else{
+        if(agenda.addAlumno(alumno)==true)
+        {
+          std::cout<<"Se ha añadido el alumno con exito\n";
+        } else{
+          std::cout<<"La lista de alumnos está llena\n";
+        }
+      }
 
    }
   }while(opcion!=0);
+
+  
 
 return 0;
 }
@@ -214,7 +271,21 @@ int menu()
 
   	//////////////////////////////////////////////////////////////////////////////
 
+      	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << "[7] Mostrar un alumno";
+
+
+      	posicion++;
+
+	PLACE(posicion++,10);
+	std::cout << "[8] Modificar Alumno esta todavia no funcionaaaaaaaaaaaaaaaaaaaaaaaaaa :)";
+  
+
 	posicion++;
+
+	//////////////////////////////////////////////////////////////////////////////
 
 	PLACE(posicion++,10);
 	std::cout << BIRED << "[0] Salir";
