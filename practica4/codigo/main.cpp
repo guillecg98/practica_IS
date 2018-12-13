@@ -12,6 +12,8 @@ int menuP();
 int main()
 {
 
+  std::cout << CLEAR_SCREEN;
+
  int opcion,op,curso,grupo,lider,telefono;
  std::string username, password;
  std::string dni,nombre,apellidos,fechaNacimiento,email,file;
@@ -194,15 +196,39 @@ int main()
               break;
 
             default:
-              std::cout<<"Error: La opcion introducida no existe\n";
-              break;
+              std::cout << BIRED;
+				      std::cout << "Opción incorrecta ";
+				      std::cout << RESET;
+				      std::cout << "--> ";
+			  	    std::cout << ONIRED;
+				      std::cout << opcion << std::endl;
+				      std::cout << RESET;
           }
+              if (opcion !=0)
+                      {
+                      PLACE(25,1);
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú"; 
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+
+                      std::cout << CLEAR_SCREEN;
+                      }
+
          }while(opcion!=0);
 
       }else {
         std::cout<<"\n";
         do
         {
+          //------------------------------------/MENU SIN PRIVILEGIOS-------------------------------
           opcion = menu();
           Alumno alumno;//se crea un alumno;
           std::cout << CLEAR_SCREEN;
@@ -377,9 +403,31 @@ int main()
              break;
 
             default:
-              std::cout<<"Error: La opcion introducida no existe\n";
-              break;
-          }
+                std::cout << BIRED;
+				      std::cout << "Opción incorrecta ";
+				      std::cout << RESET;
+				      std::cout << "--> ";
+			  	    std::cout << ONIRED;
+				      std::cout << opcion << std::endl;
+				      std::cout << RESET;
+                      }
+                      if (opcion !=0)
+                        {
+                      PLACE(25,1);
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú"; 
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+
+                      std::cout << CLEAR_SCREEN;
+                        }
          }while(opcion!=0);
       }
     }
