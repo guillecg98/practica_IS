@@ -112,14 +112,17 @@ void Agenda::mostrarAlumnosHTML() //genera un fichero HTML "alumnos.html" con lo
 
 int Agenda::searchAlumnoDNI(std::string dni) //devuelve la posicion del alumno que se está buscando
 {
-  for(int i=0; i<vAlumnos.size() ; i++)
+
+
+  for(int i=0 ; i<vAlumnos.size() ; i++)
   {
-    if(strcmp(vAlumnos[i].getDni().c_str() , dni.c_str()) == 0)
+
+    if(vAlumnos[i].getDni() == dni)
     {
       return i;
     }
   }
-  return 0;
+  return -1;
 }
 
 

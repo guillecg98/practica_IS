@@ -134,7 +134,7 @@ int main()
       //se solicita el dni del alumno que se quiere Borrar
       std::cin>>dni;
 
-      if(agenda.searchAlumnoDNI(dni) == 0)//si el alumno no existe en la lista
+      if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
       {
         std::cout<<"No existe un alumno con ese DNI\n";
       } else{
