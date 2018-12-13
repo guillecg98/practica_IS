@@ -103,6 +103,7 @@ void Agenda::mostrarAlumnosTerminal() //muestra la lista de alumnos con todos su
       } else{
         std::cout<<"El alumno no es lider\n";
       }
+      std::cout<<"\n";
     }
   }
 }
@@ -162,7 +163,7 @@ void Agenda::mostrarAlumnosMismoGrupo(int grupo){
       } else{
         std::cout<<"El alumno no es lider\n";
       }
-
+      std::cout<<"\n";
   }
 }
 }
@@ -190,7 +191,38 @@ void Agenda::mostrarUnAlumno(std::string dni){
   }else std::cout<<"No existe el alumno";
 }
 
-void Agenda::modificarAlumno(std::string dni)
+void Agenda::modificarAlumno(std::string dni, int pos)
 {
   //FUNCION EN DESARROLLO
+  std::string updni,upname,upsurname,update,upemail;
+  int uptlf,upcurso,upgrupo,uplider;
+
+  std::cout<<"1.DNI: ";
+  std::cin>>updni;
+  vAlumnos[pos].setDni(updni);
+  std::cout<<"2.Nombre: ";
+  std::cin>>upname;
+  vAlumnos[pos].setNombre(upname);
+  std::cout<<"3.Apellidos: ";
+  std::getline(std::cin,upsurname);
+  std::getline(std::cin,upsurname);
+  vAlumnos[pos].setApellidos(upsurname);
+  std::cout<<"4.Telefono: ";
+  std::cin>>uptlf;
+  vAlumnos[pos].setTelefono(uptlf);
+  std::cout<<"5.Fecha de Nacimiento: ";
+  std::cin>>update;
+  vAlumnos[pos].setFechaNacimiento(update);
+  std::cout<<"6.Email: ";
+  std::cin>>upemail;
+  vAlumnos[pos].setEmail(upemail);
+  std::cout<<"7.Curso: ";
+  std::cin>>upcurso;
+  vAlumnos[pos].setCurso(upcurso);
+  std::cout<<"8.Grupo: ";
+  std::cin>>upgrupo;
+  vAlumnos[pos].setGrupo(upgrupo);
+  std::cout<<"9.Lider (0=NO, 1=SI): ";
+  std::cin>>uplider;
+  vAlumnos[pos].setLider(uplider);
 }
