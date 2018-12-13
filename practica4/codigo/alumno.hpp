@@ -106,6 +106,7 @@ public:
     return out;
   }
 
+//------------SOBRECARGAR OPERADOR SALIDA FICHERO------------
   friend std::istream & operator >> (std::istream &in, Alumno &obj)
   {
     char *buff;
