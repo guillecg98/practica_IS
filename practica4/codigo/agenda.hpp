@@ -14,7 +14,7 @@ using namespace std;
 class Agenda{
   private:
     std::vector<Alumno> vAlumnos;
-    
+
 
   public:
 
@@ -29,13 +29,14 @@ class Agenda{
       }
     }
 
-  
+
 
     void cargarDatosFichero(std::string nombre);
     void guardarDatosFichero(std::string nombre);
     bool isLider(std::string dni);
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
+    void modificarAlumno(std::string dni);
     int searchAlumnoDNI(std::string dni);
     bool addAlumno(Alumno alumno);
     bool deleteAlumno(std::string dni);

@@ -170,7 +170,7 @@ void Agenda::mostrarAlumnosMismoGrupo(int grupo){
 void Agenda::mostrarUnAlumno(std::string dni){
 
   int posicion = searchAlumnoDNI(dni);
-  if(posicion != 0){
+  if(posicion != -1){
     std::cout<< "Alumno "<<posicion+1<<": \n";
       std::cout<<"DNI: " << vAlumnos[posicion].getDni() << "\n";
       std::cout<<"Nombre: " << vAlumnos[posicion].getNombre() << "\n";
@@ -188,4 +188,9 @@ void Agenda::mostrarUnAlumno(std::string dni){
         std::cout<<"El alumno no es lider\n";
       }
   }else std::cout<<"No existe el alumno";
+}
+
+void Agenda::modificarAlumno(std::string dni)
+{
+  //FUNCION EN DESARROLLO
 }
