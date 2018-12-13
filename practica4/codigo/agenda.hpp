@@ -40,7 +40,7 @@ class Agenda{
     bool addAlumno(Alumno alumno);
     bool deleteAlumno(std::string dni);
     void mostrarAlumnosMismoGrupo(int grupo);
-
+    void mostrarUnAlumno(std::string dni);
 };
 
 
