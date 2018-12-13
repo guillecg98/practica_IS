@@ -12,6 +12,8 @@ int menuP();
 int main()
 {
 
+ std::cout << CLEAR_SCREEN;
+ 
  int opcion,op,curso,grupo,lider,telefono,pos;
  std::string dni,nombre,apellidos,fechaNacimiento,email,file,username, password;
  Agenda agenda;
@@ -74,6 +76,8 @@ int main()
                case 1:
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
+                 system("xdg-open alumno.html &"); //Abrimos el fichero generado con el navegador por defecto
+                 std::cin.ignore();
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
@@ -185,15 +189,39 @@ int main()
               break;
 
             default:
-              std::cout<<"Error: La opcion introducida no existe\n";
-              break;
+              std::cout << BIRED;
+				      std::cout << "Opción incorrecta ";
+				      std::cout << RESET;
+				      std::cout << "--> ";
+			  	    std::cout << ONIRED;
+				      std::cout << opcion << std::endl;
+				      std::cout << RESET;
           }
+              if (opcion !=0)
+                      {
+                      PLACE(25,1);
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú"; 
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+
+                      std::cout << CLEAR_SCREEN;
+                      }
+
          }while(opcion!=0);
 
       }else {
         std::cout<<"\n";
         do
         {
+          //------------------------------------/MENU SIN PRIVILEGIOS-------------------------------
           opcion = menu();
           std::cout << CLEAR_SCREEN;
           PLACE(3,1);
@@ -229,6 +257,7 @@ int main()
                case 1:
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
+                 system("xdg-open alumno.html &"); //Abrimos el fichero generado con el navegador por defecto
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
@@ -334,9 +363,31 @@ int main()
              break;
 
             default:
-              std::cout<<"Error: La opcion introducida no existe\n";
-              break;
-          }
+                std::cout << BIRED;
+				      std::cout << "Opción incorrecta ";
+				      std::cout << RESET;
+				      std::cout << "--> ";
+			  	    std::cout << ONIRED;
+				      std::cout << opcion << std::endl;
+				      std::cout << RESET;
+                      }
+                      if (opcion !=0)
+                        {
+                      PLACE(25,1);
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú"; 
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+
+                      std::cout << CLEAR_SCREEN;
+                        }
          }while(opcion!=0);
       }
     }
