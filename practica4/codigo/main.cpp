@@ -77,6 +77,7 @@ int main()
                case 1:
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
+                 system("xdg-open alumno.html &"); //Abrimos el fichero generado con el navegador por defecto
                  std::cin.ignore();
                  break;
                case 2:
@@ -272,6 +273,7 @@ int main()
                case 1:
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
+                 system("xdg-open alumno.html &"); //Abrimos el fichero generado con el navegador por defecto
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
