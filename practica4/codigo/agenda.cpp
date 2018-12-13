@@ -1,39 +1,38 @@
 //funciones clase agenda
 #include "agenda.hpp"
 
-/*void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
+void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
-  std::ifstream f;
-  int i = 0,telefono,curso,grupo,lider;
-  std::string dni,nombre,apellidos,fechaNacimiento,email;
-  f.open(nombre, std::ios::binary);
-  if(!f.is_open())
+  std::ifstream in;
+  Alumno al;
+  in.open(nombre, std::ios::binary);
+  if(!in.is_open())
   {
-    std::cout<<"El fichero no se pudo abrir"<<\n;
+    std::cout<<"Error al abrir el fichero: "<<nombre<<"\n";
   }
   else
   {
-    while(!eof) {
-      f.read()
-    }
+    while(!in.eof()) {
+      in>>al;
+      vAlumnos.push_back(al);
     }
   }
-  f.close();
-}*/
+  in.close();
+}
 
 
 void Agenda::guardarDatosFichero(std::string nombre) //carga los datos de los alumnos al sistema desde un fichero binario
 {
-  std::ofstream f;
-
-  f.open(nombre, std::ios::binary);
+  std::ofstream out;
+  out.open(nombre, std::ios::binary);
 
   for(int i=0; i<vAlumnos.size(); i++)
   {
-    f.write((char *)&vAlumnos[i],sizeof(vAlumnos[i]));
+    out<<vAlumnos[i];
   }
 
-  f.close();
+  out.close();
+  std::cout<<"Se han guardado los datos en: "<<nombre<<"\n";
 }
 
 bool Agenda::isLider(std::string dni)//comprueba si un alumno indicado por su dni es lider o no

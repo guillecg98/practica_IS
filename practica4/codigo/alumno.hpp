@@ -64,6 +64,107 @@ public:
   inline void setGrupo(int grupo) { grupo_ = grupo;}
   inline void setLider(int lider) { lider_ = lider;}
 
+  // ------------SOBRECARGA OPERADOR ESCRITURA FICHERO -----------
+  friend std::ostream & operator << (std::ostream &out, const Alumno & obj)
+  { //para el dni
+    int lengDni = obj.dni_.size();
+    out.write(reinterpret_cast<char*>(&lengDni), sizeof(int));
+    out.write(obj.dni_.c_str(), lengDni);
+
+    //para el nombre
+    int lengName = obj.nombre_.size();
+    out.write(reinterpret_cast<char*>(&lengName), sizeof(int));
+    out.write(obj.nombre_.c_str(), lengName);
+
+    //para el apellido
+    int lengApellido = obj.apellidos_.size();
+    out.write(reinterpret_cast<char*>(&lengApellido), sizeof(int));
+    out.write(obj.apellidos_.c_str(),lengApellido);
+
+    //para el telefono
+    out.write( (char*)&obj.telefono_, sizeof(obj.telefono_)); //si no funciona, probar con sizeof(int);
+
+    //para la fecha de nacimiento
+    int lengFecha = obj.fechaNacimiento_.size();
+    out.write(reinterpret_cast<char*>(&lengFecha), sizeof(int));
+    out.write(obj.fechaNacimiento_.c_str(),lengFecha);
+
+    //para el email
+    int lengEmail = obj.email_.size();
+    out.write(reinterpret_cast<char*>(&lengEmail), sizeof(int));
+    out.write(obj.email_.c_str(),lengEmail);
+
+    //para el curso
+    out.write( (char*)&obj.curso_, sizeof(obj.curso_));
+
+    //para el grupo
+    out.write( (char*)&obj.grupo_, sizeof(obj.grupo_));
+
+    //para el lider
+    out.write( (char*)&obj.lider_, sizeof(obj.lider_));
+
+    return out;
+  }
+
+  friend std::istream & operator >> (std::istream &in, Alumno &obj)
+  {
+    char *buff;
+
+    //para el dni
+    int lengDni = obj.dni_.size();
+    in.read(reinterpret_cast<char *>(&lengDni), sizeof(int));
+    buff = new char[lengDni];
+    in.read( buff, lengDni);
+    obj.dni_ = "";
+    obj.dni_.append(buff, lengDni);
+
+    //para el nombre
+    int lengName = obj.nombre_.size();
+    in.read(reinterpret_cast<char *>(&lengName), sizeof(int));
+    buff = new char[lengName];
+    in.read( buff, lengName);
+    obj.nombre_ = "";
+    obj.nombre_.append(buff, lengName);
+
+    //para el apellido
+    int lengApe = obj.apellidos_.size();
+    in.read(reinterpret_cast<char *>(&lengApe), sizeof(int));
+    buff = new char[lengApe];
+    in.read( buff, lengApe);
+    obj.apellidos_ = "";
+    obj.apellidos_.append(buff, lengApe);
+
+    //para el telefono
+    in.read( (char *)&obj.telefono_, sizeof(obj.telefono_));
+
+    //para la fecha
+    int lengFecha = obj.fechaNacimiento_.size();
+    in.read(reinterpret_cast<char *>(&lengFecha), sizeof(int));
+    buff = new char[lengFecha];
+    in.read( buff, lengFecha);
+    obj.fechaNacimiento_ = "";
+    obj.fechaNacimiento_.append(buff, lengFecha);
+
+    //para el email
+    //para el apellido
+    int lengEmail = obj.email_.size();
+    in.read(reinterpret_cast<char *>(&lengEmail), sizeof(int));
+    buff = new char[lengEmail];
+    in.read( buff, lengEmail);
+    obj.email_ = "";
+    obj.email_.append(buff, lengEmail);
+
+    //para el curso
+    in.read( (char *)&obj.curso_, sizeof(obj.curso_));
+
+    //para el grupo
+    in.read( (char *)&obj.grupo_, sizeof(obj.grupo_));
+
+    //para el lider
+    in.read( (char *)&obj.lider_, sizeof(obj.lider_));
+
+    return in;
+  }
 
 };
 

@@ -31,7 +31,7 @@ class Agenda{
 
   
 
-    //void cargarDatosFichero(std::string nombre);
+    void cargarDatosFichero(std::string nombre);
     void guardarDatosFichero(std::string nombre);
     bool isLider(std::string dni);
     void mostrarAlumnosTerminal();
