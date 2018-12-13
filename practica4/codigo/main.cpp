@@ -12,10 +12,10 @@ int menuP();
 int main()
 {
 
- int opcion,op,curso,grupo,lider,telefono;
- std::string username, password;
- std::string dni,nombre,apellidos,fechaNacimiento,email,file;
+ int opcion,op,curso,grupo,lider,telefono,pos;
+ std::string dni,nombre,apellidos,fechaNacimiento,email,file,username, password;
  Agenda agenda;
+ Alumno alumno;//se crea un alumno;
  Profesor p;
 
   std::cout << "Introduzca su Nombre de Usuario\n";
@@ -38,7 +38,6 @@ int main()
         do
         {
           opcion = menuP();
-          Alumno alumno;//se crea un alumno;
           std::cout << CLEAR_SCREEN;
           PLACE(3,1);
 
@@ -56,7 +55,6 @@ int main()
              std::cin>>file;
              agenda.cargarDatosFichero(file);
              std::cout<<"Se han cargado los datos\n";
-             std::cin.ignore();
             break;
 
             case 2:
@@ -65,7 +63,6 @@ int main()
              std::cin>>file;
              agenda.guardarDatosFichero(file);
              std::cout<<"Se ha creado el fichero <"<<file<<">\n";
-             std::cin.ignore();
              break;
 
             case 3:
@@ -77,15 +74,12 @@ int main()
                case 1:
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
-                 std::cin.ignore();
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
-                 std::cin.ignore();
                  break;
                default:
                  std::cout<<"Opcion Incorrecta\n";
-                 std::cin.ignore();
                  break;
              }
              break;
@@ -126,15 +120,12 @@ int main()
              if(agenda.searchAlumnoDNI(alumno.getDni()) != -1)//si el alumno existe en la lista
              {
                std::cout<<"Ya existe un alumno con ese DNI\n";
-               std::cin.ignore();
              } else{
                if(agenda.addAlumno(alumno)==true)
                {
                  std::cout<<"Se ha añadido el alumno con éxito\n";
-                 std::cin.ignore();
                } else{
                  std::cout<<"La lista de alumnos está llena\n";
-                 std::cin.ignore();
                }
              }
              break;
@@ -165,15 +156,15 @@ int main()
 
             case 7:
              //Modificar alumno
-             std::cout<<"EN DESARROLLO\n";
-             /*std::cout<<"Introduce el dni del alumno que desea modificar:";
+             std::cout<<"Introduce el dni del alumno que desea modificar:";
              std::cin>>dni;
-             if(agenda.searchAlumnoDNI(alumno.getDni()) != -1)//si el alumno existe en la lista
+             pos = agenda.searchAlumnoDNI(dni);
+             if(pos != -1)//si el alumno existe en la lista
              {
-               modificarAlumno(dni);
+               agenda.modificarAlumno(dni,pos);
              }else {
                std::cout<<"No existe un alumno con el DNI indicado\n";
-             }*/
+             }
             break;
 
             case 8:
@@ -204,7 +195,6 @@ int main()
         do
         {
           opcion = menu();
-          Alumno alumno;//se crea un alumno;
           std::cout << CLEAR_SCREEN;
           PLACE(3,1);
 
@@ -278,7 +268,7 @@ int main()
              std::cout<<"8.Grupo: ";
              std::cin>>grupo;
              alumno.setGrupo(grupo);
-             std::cout<<"9.Lider: (0=NO, 1=SI) ";
+             std::cout<<"9.Lider (0=NO, 1=SI): ";
              std::cin>>lider;
              alumno.setLider(lider);
 
@@ -325,50 +315,17 @@ int main()
 
 
             case 7:
-             //Modificar alumno
-             std::cout<<"Introduce los Datos del nuevo alumno\n";
-             //se piden los datos del alumno por pantalla
-             std::cout<<"1.DNI:\n";
-             std::cin>>dni;
-             alumno.setDni(dni);
-             std::cout<<"2.Nombre:\n";
-             std::cin>>nombre;
-             alumno.setNombre(nombre);
-             std::cout<<"3.Apellidos:\n";
-             std::getline(std::cin,apellidos);
-             std::getline(std::cin,apellidos);
-             alumno.setApellidos(apellidos);
-             std::cout<<"4.Telefono:\n";
-             std::cin>>telefono;
-             alumno.setTelefono(telefono);
-             std::cout<<"5.Fecha de Nacimiento:\n";
-             std::cin>>fechaNacimiento;
-             alumno.setFechaNacimiento(fechaNacimiento);
-             std::cout<<"6.Email:\n";
-             std::cin>>email;
-             alumno.setEmail(email);
-             std::cout<<"7.Curso:\n";
-             std::cin>>curso;
-             alumno.setCurso(curso);
-             std::cout<<"8.Grupo: ( 0 si no pertenece a ningún grupo)\n";
-             std::cin>>grupo;
-             alumno.setGrupo(grupo);
-             std::cout<<"9.Lider: (0=NO, 1=SI)\n";
-             std::cin>>lider;
-             alumno.setLider(lider);
-
-             if(agenda.searchAlumnoDNI(alumno.getDni()) != 0)//si el alumno existe en la lista
-             {
-               std::cout<<"Ya existe un alumno con ese DNI\n";
-             } else{
-               if(agenda.addAlumno(alumno)==true)
-               {
-                 std::cout<<"Se ha añadido el alumno con exito\n";
-               } else{
-                 std::cout<<"La lista de alumnos está llena\n";
-               }
-             }
-            break;
+            //Modificar alumno
+            std::cout<<"Introduce el dni del alumno que desea modificar:";
+            std::cin>>dni;
+            pos = agenda.searchAlumnoDNI(dni);
+            if(pos != -1)//si el alumno existe en la lista
+            {
+              agenda.modificarAlumno(dni,pos);
+            }else {
+              std::cout<<"No existe un alumno con el DNI indicado\n";
+            }
+             break;
 
             case 8:
              std::cout<<"Introduce el dni del alumno que se desea mostrar\n";
