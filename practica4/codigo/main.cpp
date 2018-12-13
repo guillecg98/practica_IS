@@ -16,7 +16,7 @@ int main()
  std::string username, password;
  std::string dni,nombre,apellidos,fechaNacimiento,email,file;
  Agenda agenda;
- Profesor p;
+ /*Profesor p;
 
   std::cout << "Introduzca su Nombre de Usuario" << '\n';
   std::cin >> username;
@@ -32,7 +32,7 @@ int main()
     if(p.loginPassword(username, password) == false){std::cout << "Contraseña incorrecta" << '\n'; return -1;}
   }
 
-
+*/
 
 
  do
@@ -52,7 +52,9 @@ int main()
 
      case 1:
       //Cargar fichero de alumnos
-      std::cout<<"Esta opcion está en desarrollo\n";
+      std::cout<<"Introduce el nombre del fichero\n";
+      std::cin>>file;
+      agenda.cargarDatosFichero(file);
      break;
 
      case 2:
