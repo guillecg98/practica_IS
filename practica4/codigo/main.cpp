@@ -13,7 +13,7 @@ int main()
 {
 
  std::cout << CLEAR_SCREEN;
- 
+
  int opcion,op,curso,grupo,lider,telefono,pos;
  std::string dni,nombre,apellidos,fechaNacimiento,email,file,username, password;
  Agenda agenda;
@@ -77,7 +77,6 @@ int main()
                  agenda.mostrarAlumnosHTML();
                  std::cout<<"Se ha creado el fichero <alumnos.html>\n";
                  system("xdg-open alumno.html &"); //Abrimos el fichero generado con el navegador por defecto
-                 std::cin.ignore();
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
@@ -117,7 +116,7 @@ int main()
              std::cout<<"8.Grupo: ";
              std::cin>>grupo;
              alumno.setGrupo(grupo);
-             std::cout<<"9.Lider: (0=NO, 1=SI) ";
+             std::cout<<"9.Lider (0=NO, 1=SI): ";
              std::cin>>lider;
              alumno.setLider(lider);
 
@@ -188,32 +187,34 @@ int main()
               std::cout<<"Funcion de cargar copia de Seguridad en desarrollo\n";
               break;
 
-            default:
-              std::cout << BIRED;
-				      std::cout << "Opción incorrecta ";
-				      std::cout << RESET;
-				      std::cout << "--> ";
-			  	    std::cout << ONIRED;
-				      std::cout << opcion << std::endl;
-				      std::cout << RESET;
-          }
-              if (opcion !=0)
-                      {
-                      PLACE(25,1);
-                      std::cout << "Pulse ";
-                      std::cout << BIGREEN;
-                      std::cout << "ENTER";
-                      std::cout << RESET;
-                      std::cout << " para mostrar el ";
-                      std::cout << INVERSE;
-                      std::cout << "menú"; 
-                      std::cout << RESET;
+              default:
+                std::cout << BIRED;
+  				      std::cout << "Opción incorrecta ";
+  				      std::cout << RESET;
+  				      std::cout << "--> ";
+  			  	    std::cout << ONIRED;
+  				      std::cout << opcion << std::endl;
+  				      std::cout << RESET;
+                break;
+            }
+            if (opcion !=0)
+            {
+              PLACE(25,1);
+              std::cout << "Pulse ";
+              std::cout << BIGREEN;
+              std::cout << "ENTER";
+              std::cout << RESET;
+              std::cout << " para mostrar el ";
+              std::cout << INVERSE;
+              std::cout << "menú";
+              std::cout << RESET;
 
-                      // Pausa
-                      std::cin.ignore();
+              // Pausa
+              std::cin.ignore();
+              std::cin.ignore();
 
-                      std::cout << CLEAR_SCREEN;
-                      }
+              std::cout << CLEAR_SCREEN;
+            }
 
          }while(opcion!=0);
 
@@ -341,8 +342,6 @@ int main()
             agenda.mostrarAlumnosMismoGrupo(grupo);
             break;
 
-
-
             case 7:
             //Modificar alumno
             std::cout<<"Introduce el dni del alumno que desea modificar:";
@@ -363,31 +362,34 @@ int main()
              break;
 
             default:
-                std::cout << BIRED;
+              std::cout << BIRED;
 				      std::cout << "Opción incorrecta ";
 				      std::cout << RESET;
 				      std::cout << "--> ";
 			  	    std::cout << ONIRED;
 				      std::cout << opcion << std::endl;
 				      std::cout << RESET;
-                      }
-                      if (opcion !=0)
-                        {
-                      PLACE(25,1);
-                      std::cout << "Pulse ";
-                      std::cout << BIGREEN;
-                      std::cout << "ENTER";
-                      std::cout << RESET;
-                      std::cout << " para mostrar el ";
-                      std::cout << INVERSE;
-                      std::cout << "menú"; 
-                      std::cout << RESET;
+              break;
+          }
+          if (opcion !=0)
+          {
+            PLACE(25,1);
+            std::cout << "Pulse ";
+            std::cout << BIGREEN;
+            std::cout << "ENTER";
+            std::cout << RESET;
+            std::cout << " para mostrar el ";
+            std::cout << INVERSE;
+            std::cout << "menú";
+            std::cout << RESET;
 
-                      // Pausa
-                      std::cin.ignore();
+            // Pausa
+            std::cin.ignore();
+            std::cin.ignore();
 
-                      std::cout << CLEAR_SCREEN;
-                        }
+
+            std::cout << CLEAR_SCREEN;
+          }
          }while(opcion!=0);
       }
     }
