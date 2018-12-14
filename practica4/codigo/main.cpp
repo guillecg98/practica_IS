@@ -183,6 +183,9 @@ int main()
             case 9:
               //opcion a desarrollar de Crear Copia de seguridad
               std::cout<<"Introduzca el fichero del cual quiere crear la copia\n";
+              std::cin>>file;
+              agenda.crearCopiaSeguridad(file);
+              std::cout<<"Se ha creado una copia de seguridad del fichero: <"<<file<<">\n";
               break;
 
             case 10:
@@ -552,12 +555,13 @@ int menuP() //Este es el menu que se le mostrará a los usuarios privilegiados
   posicion++;
 
   PLACE(posicion++,10);
-  std::cout << "[9] Cargar Copia de Seguridad";
+
+  std::cout << "[9] Crear Copia de Seguridad";
 
   posicion++;
 
   PLACE(posicion++,10);
-  std::cout << "[10] Crear Copia de Seguridad";
+  std::cout << "[10] Cargar Copia de Seguridad";
 
 	//////////////////////////////////////////////////////////////////////////////
   posicion++;

@@ -225,3 +225,34 @@ void Agenda::modificarAlumno(std::string dni, int pos)
   std::cin>>uplider;
   vAlumnos[pos].setLider(uplider);
 }
+
+void Agenda::crearCopiaSeguridad(std::string nombre)
+{
+  std::vector<Alumno> aux;
+  std::ifstream in;
+  Alumno al;
+  in.open(nombre, std::ios::binary);
+  if(!in.is_open())
+  {
+    std::cout<<"Error al abrir el fichero: "<<nombre<<"\n";
+  }
+  else
+  {
+    while(in>>al) {
+      aux.push_back(al);
+    }
+  }
+  in.close();
+
+  nombre = nombre+"_backup";
+
+  std::ofstream out;
+  out.open(nombre, std::ios::binary);
+
+  for(int i=0; i<aux.size(); i++)
+  {
+    out<<aux[i];
+  }
+
+  out.close();
+}
