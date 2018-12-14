@@ -80,6 +80,23 @@ int main()
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
+
+
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú";
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+                      std::cin.ignore();
+
+
+                      std::cout << CLEAR_SCREEN;
                  break;
                default:
                  std::cout<<"Opcion Incorrecta\n";
@@ -204,7 +221,7 @@ int main()
   				      std::cout << RESET;
                 break;
             }
-            if (opcion !=0)
+            if (opcion !=0 && opcion !=3)
             {
               PLACE(25,1);
               std::cout << "Pulse ";
@@ -271,6 +288,22 @@ int main()
                  break;
                case 2:
                  agenda.mostrarAlumnosTerminal();
+
+                        std::cout << "Pulse ";
+                        std::cout << BIGREEN;
+                        std::cout << "ENTER";
+                        std::cout << RESET;
+                        std::cout << " para mostrar el ";
+                        std::cout << INVERSE;
+                        std::cout << "menú";
+                        std::cout << RESET;
+
+                        // Pausa
+                        std::cin.ignore();
+                        std::cin.ignore();
+
+
+                        std::cout << CLEAR_SCREEN;
                  break;
                default:
                  std::cout<<"Opcion Incorrecta\n";
@@ -380,7 +413,7 @@ int main()
 				      std::cout << RESET;
               break;
           }
-          if (opcion !=0)
+          if (opcion !=0 && opcion != 3)
           {
             PLACE(25,1);
             std::cout << "Pulse ";
