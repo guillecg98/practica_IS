@@ -56,7 +56,6 @@ int main()
              std::cout<<"Introduzca el nombre del fichero\n";
              std::cin>>file;
              agenda.cargarDatosFichero(file);
-             std::cout<<"Se han cargado los datos del fichero: <"<<file<<">\n";
             break;
 
             case 2:
@@ -64,7 +63,6 @@ int main()
              std::cout<<"Introduzca el nombre del fichero\n";
              std::cin>>file;
              agenda.guardarDatosFichero(file);
-             std::cout<<"Se ha creado el fichero <"<<file<<">\n";
              break;
 
             case 3:
@@ -202,7 +200,6 @@ int main()
               std::cout<<"Introduzca el fichero del cual quiere crear la copia\n";
               std::cin>>file;
               agenda.crearCopiaSeguridad(file);
-              std::cout<<"Se ha creado una copia de seguridad del fichero: <"<<file<<">\n";
               break;
 
             case 10:
@@ -267,7 +264,6 @@ int main()
              std::cout<<"Introduzca el nombre del fichero\n";
              std::cin>>file;
              agenda.cargarDatosFichero(file);
-             std::cout<<"Se han cargado los datos del fichero: <"<<file<<">\n";
             break;
 
             case 2:
@@ -275,7 +271,6 @@ int main()
              std::cout<<"Introduzca el nombre del fichero\n";
              std::cin>>file;
              agenda.guardarDatosFichero(file);
-             std::cout<<"Se ha creado el fichero <"<<file<<">\n";
              break;
 
             case 3:
@@ -292,21 +287,22 @@ int main()
                case 2:
                  agenda.mostrarAlumnosTerminal();
 
-                        std::cout << "Pulse ";
-                        std::cout << BIGREEN;
-                        std::cout << "ENTER";
-                        std::cout << RESET;
-                        std::cout << " para mostrar el ";
-                        std::cout << INVERSE;
-                        std::cout << "menú";
-                        std::cout << RESET;
 
-                        // Pausa
-                        std::cin.ignore();
-                        std::cin.ignore();
+                      std::cout << "Pulse ";
+                      std::cout << BIGREEN;
+                      std::cout << "ENTER";
+                      std::cout << RESET;
+                      std::cout << " para mostrar el ";
+                      std::cout << INVERSE;
+                      std::cout << "menú";
+                      std::cout << RESET;
+
+                      // Pausa
+                      std::cin.ignore();
+                      std::cin.ignore();
 
 
-                        std::cout << CLEAR_SCREEN;
+                      std::cout << CLEAR_SCREEN;
                  break;
                default:
                  std::cout<<"Opcion Incorrecta\n";
