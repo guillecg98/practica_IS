@@ -38,6 +38,7 @@ class Agenda{
     void mostrarAlumnosMismoGrupo(int grupo);
     void mostrarUnAlumno(std::string dni);
     void modificarAlumno(std::string dni,int pos);
+    void crearCopiaSeguridad(std::string nombre);
 };
 
 
