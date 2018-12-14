@@ -12,8 +12,7 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
   }
   else
   {
-    while(!in.eof()) {
-      in>>al;
+    while(in>>al) {
       vAlumnos.push_back(al);
     }
   }
@@ -188,7 +187,7 @@ void Agenda::mostrarUnAlumno(std::string dni){
       } else{
         std::cout<<"El alumno no es lider\n";
       }
-  }else std::cout<<"No existe el alumno";
+  }else std::cout<<"No existe un alumno con el DNI indicado\n";
 }
 
 void Agenda::modificarAlumno(std::string dni, int pos)
