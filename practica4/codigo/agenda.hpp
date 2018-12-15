@@ -30,6 +30,8 @@ class Agenda{
     void cargarDatosFichero(std::string nombre);
     void guardarDatosFichero(std::string nombre);
     bool isLider(std::string dni);
+    bool hayLiderGrupoAdd(int numero);
+    bool hayLiderGrupoUpdate(int numero, int pos);
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
     int searchAlumnoDNI(std::string dni);
