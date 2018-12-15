@@ -1,3 +1,3 @@
-p42argea 1234-Y
-i62cogag qwerty-N
-i23geon 0000-N
+coordinador 1234-Y
+ayudante1 1234-N
+ayudante2 1234-N
