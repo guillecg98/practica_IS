@@ -50,6 +50,36 @@ bool Agenda::isLider(std::string dni)//comprueba si un alumno indicado por su dn
   return false;
 }
 
+bool Agenda::hayLiderGrupoAdd(int numero)//devuelve true si en dicho grupo ya hay un lider
+{
+  for(int i = 0; i<vAlumnos.size(); i++)
+  {
+    if( vAlumnos[i].getGrupo() == numero)
+    {
+      if( isLider(vAlumnos[i].getDni()) )
+      {
+        return true; //hay un lider en el grupo
+      }
+    }
+  }
+  return false;
+}
+
+bool Agenda::hayLiderGrupoUpdate(int numero, int pos)//devuelve true si en dicho grupo ya hay un lider
+{
+  for(int i = 0; i<vAlumnos.size(); i++)
+  {
+    if( vAlumnos[i].getGrupo() == numero)
+    {
+      if( (isLider(vAlumnos[i].getDni()) == true) && (i != pos) )
+      {
+        return true; //hay un lider en el grupo
+      }
+    }
+  }
+  return false;
+}
+
 void Agenda::mostrarAlumnosHTML() //genera un fichero HTML "alumnos.html" con los datos de todos los alumnos.
 {
   if(vAlumnos.empty())
@@ -223,9 +253,15 @@ void Agenda::modificarAlumno(std::string dni, int pos)
   std::cout<<"8.Grupo: ";
   std::cin>>upgrupo;
   vAlumnos[pos].setGrupo(upgrupo);
-  std::cout<<"9.Lider (0=NO, 1=SI): ";
-  std::cin>>uplider;
-  vAlumnos[pos].setLider(uplider);
+  if( hayLiderGrupoUpdate(vAlumnos[pos].getGrupo(), pos) )
+  {
+    std::cout<<"El alumno que está añadiendo no puede ser lider del grupo debido a que ya hay un lider en el mismo\n";
+    vAlumnos[pos].setLider(0);
+  }else {
+    std::cout<<"9.Lider (0=NO, 1=SI): ";
+    std::cin>>uplider;
+    vAlumnos[pos].setLider(uplider);
+  }
 }
 
 void Agenda::crearCopiaSeguridad(std::string nombre)

@@ -131,10 +131,15 @@ int main()
              std::cout<<"8.Grupo: ";
              std::cin>>grupo;
              alumno.setGrupo(grupo);
-             std::cout<<"9.Lider (0=NO, 1=SI): ";
-             std::cin>>lider;
-             alumno.setLider(lider);
-
+             if(agenda.hayLiderGrupoAdd(alumno.getGrupo()))
+             {
+               std::cout<<"El alumno que está añadiendo no puede ser lider del grupo debido a que ya hay un lider en el mismo\n";
+               alumno.setLider(0);
+             }else {
+               std::cout<<"9.Lider (0=NO, 1=SI): ";
+               std::cin>>lider;
+               alumno.setLider(lider);
+             }
              if(agenda.searchAlumnoDNI(alumno.getDni()) != -1)//si el alumno existe en la lista
              {
                std::cout<<"\n";
@@ -339,10 +344,15 @@ int main()
              std::cout<<"8.Grupo: ";
              std::cin>>grupo;
              alumno.setGrupo(grupo);
-             std::cout<<"9.Lider (0=NO, 1=SI): ";
-             std::cin>>lider;
-             alumno.setLider(lider);
-
+             if(agenda.hayLiderGrupoAdd(alumno.getGrupo()))
+             {
+               std::cout<<"El alumno que está añadiendo no puede ser lider del grupo debido a que ya hay un lider en el mismo\n";
+               alumno.setLider(0);
+             }else {
+               std::cout<<"9.Lider (0=NO, 1=SI): ";
+               std::cin>>lider;
+               alumno.setLider(lider);
+             }
              if(agenda.searchAlumnoDNI(alumno.getDni()) != -1)//si el alumno existe en la lista
              {
                std::cout<<"\n";
