@@ -7,7 +7,7 @@
 
 ### Días de Desarrollo: 7.
 
-### Tareas a Desarrollar: 5.
+### Tareas a Desarrollar: 6.
 
 1. Login: ID:00 - Alejandro.
 
