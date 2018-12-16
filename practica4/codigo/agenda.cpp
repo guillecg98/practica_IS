@@ -15,9 +15,9 @@ void Agenda::cargarDatosFichero(std::string nombre) //carga los datos de los alu
     while(in>>al) {
       vAlumnos.push_back(al);
     }
+    std::cout<<"Se han cargado los datos del fichero: <"<<nombre<<">\n";
   }
   in.close();
-  std::cout<<"Se han cargado los datos del fichero: <"<<nombre<<">\n";
 }
 
 
@@ -71,7 +71,7 @@ bool Agenda::hayLiderGrupoUpdate(int numero, int pos)//devuelve true si en dicho
   {
     if( vAlumnos[i].getGrupo() == numero)
     {
-      if( (isLider(vAlumnos[i].getDni()) == true) && (i != pos) )
+      if( (isLider(vAlumnos[i].getDni()) == true) && (i != pos) )//entra en el condicional si hay un lider que no sea él mismo
       {
         return true; //hay un lider en el grupo
       }
@@ -141,11 +141,21 @@ void Agenda::mostrarAlumnosTerminal() //muestra la lista de alumnos con todos su
 
 int Agenda::searchAlumnoDNI(std::string dni) //devuelve la posicion del alumno que se está buscando
 {
-
-
   for(int i=0 ; i<vAlumnos.size() ; i++)
   {
     if(vAlumnos[i].getDni() == dni)
+    {
+      return i;
+    }
+  }
+  return -1;
+}
+
+int Agenda::searchAlumnoApellidos(std::string apellidos)
+{
+  for(int i = 0; i<vAlumnos.size(); i++)
+  {
+    if(vAlumnos[i].getApellidos() == apellidos)
     {
       return i;
     }
@@ -163,13 +173,36 @@ bool Agenda::addAlumno(Alumno alumno)
   return false;
 }
 
-bool Agenda::deleteAlumno(std::string dni)//EL metodo debe borrar por dni
+bool Agenda::deleteAlumnoDNI(std::string dni)//EL metodo debe borrar por dni
 {
   if(!vAlumnos.empty())
   {
     int numPosicion = searchAlumnoDNI(dni);
     vAlumnos.erase(vAlumnos.begin()+numPosicion);
     return true;
+  }
+  return false;
+}
+
+bool Agenda::deleteAlumnoApellidos(std::string apellidos)//EL metodo debe borrar por apellidos
+{
+  if(!vAlumnos.empty())
+  {
+    int numPosicion = searchAlumnoApellidos(apellidos);
+    vAlumnos.erase(vAlumnos.begin()+numPosicion);
+    return true;
+  }
+  return false;
+}
+
+bool Agenda::coincideAlumno(std::string apellidos, int pos)
+{
+  for(int i = 0; i<vAlumnos.size(); i++)
+  {
+    if( (apellidos == vAlumnos[i].getApellidos()) && (i != pos) )//si coinciden los apellidos y no son los suyos mismos
+    {
+      return true;
+    }
   }
   return false;
 }
@@ -195,11 +228,25 @@ void Agenda::mostrarAlumnosMismoGrupo(int grupo){
         std::cout<<"El alumno no es lider\n";
       }
       std::cout<<"\n";
+    }
   }
-}
+  std::cout << "Pulse ";
+  std::cout << BIGREEN;
+  std::cout << "ENTER";
+  std::cout << RESET;
+  std::cout << " para mostrar el ";
+  std::cout << INVERSE;
+  std::cout << "menú";
+  std::cout << RESET;
+
+  // Pausa
+  std::cin.ignore();
+  std::cin.ignore();
+
+  std::cout << CLEAR_SCREEN;
 }
 
-void Agenda::mostrarUnAlumno(std::string dni){
+void Agenda::mostrarUnAlumnoDNI(std::string dni){
 
   int posicion = searchAlumnoDNI(dni);
   if(posicion != -1){
@@ -222,11 +269,78 @@ void Agenda::mostrarUnAlumno(std::string dni){
   }else std::cout<<"No existe un alumno con el DNI indicado\n";
 }
 
-void Agenda::modificarAlumno(std::string dni, int pos)
+void Agenda::mostrarUnAlumnoApellidos(std::string apellidos){
+
+  int posicion = searchAlumnoApellidos(apellidos);
+  if(posicion != -1){
+    std::cout<< "Alumno "<<posicion+1<<": \n";
+      std::cout<<"DNI: " << vAlumnos[posicion].getDni() << "\n";
+      std::cout<<"Nombre: " << vAlumnos[posicion].getNombre() << "\n";
+      std::cout<<"Apellidos: " << vAlumnos[posicion].getApellidos() << "\n";
+      std::cout<<"Telefono: " << vAlumnos[posicion].getTelefono() << "\n";
+      std::cout<<"Fecha de Nacimiento: " << vAlumnos[posicion].getFechaNacimiento() << "\n";
+      std::cout<<"Email: " << vAlumnos[posicion].getEmail() << "\n";
+      std::cout<<"Curso: " << vAlumnos[posicion].getCurso() << "\n";
+      std::cout<<"Grupo: " << vAlumnos[posicion].getGrupo() << "\n";
+
+      if( isLider(vAlumnos[posicion].getDni()) == true )
+      {
+        std::cout<<"El alumno es lider\n";
+      } else{
+        std::cout<<"El alumno no es lider\n";
+      }
+  }else std::cout<<"No existe un alumno con el DNI indicado\n";
+}
+
+void Agenda::modificarAlumnoDNI(std::string dni, int pos)
 {
   //FUNCION EN DESARROLLO
   std::string updni,upname,upsurname,update,upemail;
   int uptlf,upcurso,upgrupo,uplider;
+  std::cout<<"Introduzca los nuevos datos del alumno:\n";
+
+  std::cout<<"1.DNI: ";
+  std::cin>>updni;
+  vAlumnos[pos].setDni(updni);
+  std::cout<<"2.Nombre: ";
+  std::cin>>upname;
+  vAlumnos[pos].setNombre(upname);
+  std::cout<<"3.Apellidos: ";
+  std::getline(std::cin,upsurname);
+  std::getline(std::cin,upsurname);
+  vAlumnos[pos].setApellidos(upsurname);
+  std::cout<<"4.Telefono: ";
+  std::cin>>uptlf;
+  vAlumnos[pos].setTelefono(uptlf);
+  std::cout<<"5.Fecha de Nacimiento: ";
+  std::cin>>update;
+  vAlumnos[pos].setFechaNacimiento(update);
+  std::cout<<"6.Email: ";
+  std::cin>>upemail;
+  vAlumnos[pos].setEmail(upemail);
+  std::cout<<"7.Curso: ";
+  std::cin>>upcurso;
+  vAlumnos[pos].setCurso(upcurso);
+  std::cout<<"8.Grupo: ";
+  std::cin>>upgrupo;
+  vAlumnos[pos].setGrupo(upgrupo);
+  if( hayLiderGrupoUpdate(vAlumnos[pos].getGrupo(), pos) )
+  {
+    std::cout<<"El alumno que está añadiendo no puede ser lider del grupo debido a que ya hay un lider en el mismo\n";
+    vAlumnos[pos].setLider(0);
+  }else {
+    std::cout<<"9.Lider (0=NO, 1=SI): ";
+    std::cin>>uplider;
+    vAlumnos[pos].setLider(uplider);
+  }
+}
+
+void Agenda::modificarAlumnoApellidos(std::string apellidos, int pos)
+{
+  //FUNCION EN DESARROLLO
+  std::string updni,upname,upsurname,update,upemail;
+  int uptlf,upcurso,upgrupo,uplider;
+  std::cout<<"Introduzca los nuevos datos del alumno:\n";
 
   std::cout<<"1.DNI: ";
   std::cin>>updni;
@@ -272,7 +386,7 @@ void Agenda::crearCopiaSeguridad(std::string nombre)
   in.open(nombre, std::ios::binary);
   if(!in.is_open())
   {
-    std::cout<<"Error al abrir el fichero: "<<nombre<<"\n";
+    std::cout<<"Error al abrir el fichero: "<<nombre<<" no existe.\n";
   }
   else
   {

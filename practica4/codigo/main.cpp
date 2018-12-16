@@ -158,23 +158,54 @@ int main()
 
             case 5:
              //Borrar alumno
-             std::cout<<"Introduzca el DNI del alumno que quiere eliminar\n";
-             //se solicita el dni del alumno que se quiere Borrar
-             std::cin>>dni;
-             if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
+             std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+             std::getline(std::cin,apellidos);
+             if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
              {
-               std::cout<<"No existe un alumno con ese DNI\n";
-             }else {
-               if(agenda.deleteAlumno(dni)==true)
+               std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+               //se solicita el dni del alumno que se quiere Borrar
+               std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+               std::cin>>dni;
+               if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
                {
-                 std::cout<<"Se ha eliminado el alumno con exito\n";
+                 std::cout<<"No existe un alumno con ese DNI\n";
                }else {
-                 std::cout<<"La lista de alumnos está vacía\n";
+                 if(agenda.deleteAlumnoDNI(dni)==true)
+                 {
+                   std::cout<<"Se ha eliminado el alumno con exito\n";
+                 }else {
+                   std::cout<<"La lista de alumnos está vacía\n";
+                 }
                }
-              }
+             }else {//si existe
+               if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+               {
+                 std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                 std::cin>>dni;
+                 if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
+                 {
+                   std::cout<<"No existe un alumno con ese DNI\n";
+                 }else {
+                   if(agenda.deleteAlumnoDNI(dni)==true)
+                   {
+                     std::cout<<"Se ha eliminado el alumno con exito\n";
+                   }else {
+                     std::cout<<"La lista de alumnos está vacía\n";
+                   }
+                 }
+               }else {
+                 if(agenda.deleteAlumnoApellidos(apellidos)==true)
+                 {
+                   std::cout<<"Se ha eliminado el alumno con exito\n";
+                 }else {
+                   std::cout<<"La lista de alumnos está vacía\n";
+                 }
+               }
+             }
              break;
 
             case 6:
+            //Mostrar Alumnos de un grupo
             std::cout<<"Introduzca numero de grupo:\n";
             std::cin>>grupo;
             agenda.mostrarAlumnosMismoGrupo(grupo);
@@ -182,21 +213,60 @@ int main()
 
             case 7:
              //Modificar alumno
-             std::cout<<"Introduzca el dni del alumno que desea modificar:";
-             std::cin>>dni;
-             pos = agenda.searchAlumnoDNI(dni);
-             if(pos != -1)//si el alumno existe en la lista
+             std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+             std::getline(std::cin,apellidos);
+             if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
              {
-               agenda.modificarAlumno(dni,pos);
-             }else {
-               std::cout<<"No existe un alumno con el DNI indicado\n";
+               std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+               //se solicita el dni del alumno que se quiere Borrar
+               std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+               std::cin>>dni;
+               pos = agenda.searchAlumnoDNI(dni);
+               if(pos != -1)//si se encuentra alumno por su dni
+               {
+                 agenda.modificarAlumnoDNI(dni,pos);
+               }else {
+                 std::cout<<"No existe un alumno con el DNI indicado.\n";
+               }
+             }else { //los apellidos existen en la agenda
+               if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+               {
+                 std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                 std::cin>>dni;
+                 pos = agenda.searchAlumnoDNI(dni);
+                 if(pos != -1)//si se encuentra alumno por su dni
+                 {
+                   agenda.modificarAlumnoDNI(dni,pos);
+                 }else {
+                   std::cout<<"No existe un alumno con el DNI indicado.\n";
+                 }
+               }else {
+                 agenda.modificarAlumnoApellidos(apellidos,agenda.searchAlumnoApellidos(apellidos));
+               }
              }
             break;
 
             case 8:
-             std::cout<<"Introduzca el dni del alumno que desea visualizar\n";
-             std::cin>>dni;
-             agenda.mostrarUnAlumno(dni);
+            //MOstrar UN alumno
+            std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+            std::getline(std::cin,apellidos);
+            if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
+            {
+              std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+              //se solicita el dni del alumno que se quiere Borrar
+              std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+              std::cin>>dni;
+              agenda.mostrarUnAlumnoDNI(dni);
+            }else { //existe alumno
+              if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+              {
+                std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                std::cin>>dni;
+                agenda.mostrarUnAlumnoDNI(dni);
+              }else {
+                agenda.mostrarUnAlumnoApellidos(apellidos);
+              }
+            }
              break;
 
 
@@ -371,23 +441,54 @@ int main()
 
             case 5:
              //Borrar alumno
-             std::cout<<"Introduzca el DNI del alumno que quiere eliminar\n";
-             //se solicita el dni del alumno que se quiere Borrar
-             std::cin>>dni;
-             if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
+             std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+             std::getline(std::cin,apellidos);
+             if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
              {
-               std::cout<<"No existe un alumno con ese DNI\n";
-             }else {
-               if(agenda.deleteAlumno(dni)==true)
+               std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+               //se solicita el dni del alumno que se quiere Borrar
+               std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+               std::cin>>dni;
+               if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
                {
-                 std::cout<<"Se ha eliminado el alumno con exito\n";
+                 std::cout<<"No existe un alumno con ese DNI\n";
                }else {
-                 std::cout<<"La lista de alumnos está vacía\n";
+                 if(agenda.deleteAlumnoDNI(dni)==true)
+                 {
+                   std::cout<<"Se ha eliminado el alumno con exito\n";
+                 }else {
+                   std::cout<<"La lista de alumnos está vacía\n";
+                 }
                }
-              }
+             }else {//si existe
+               if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+               {
+                 std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                 std::cin>>dni;
+                 if(agenda.searchAlumnoDNI(dni) == -1)//si el alumno no existe en la lista
+                 {
+                   std::cout<<"No existe un alumno con ese DNI\n";
+                 }else {
+                   if(agenda.deleteAlumnoDNI(dni)==true)
+                   {
+                     std::cout<<"Se ha eliminado el alumno con exito\n";
+                   }else {
+                     std::cout<<"La lista de alumnos está vacía\n";
+                   }
+                 }
+               }else {
+                 if(agenda.deleteAlumnoApellidos(apellidos)==true)
+                 {
+                   std::cout<<"Se ha eliminado el alumno con exito\n";
+                 }else {
+                   std::cout<<"La lista de alumnos está vacía\n";
+                 }
+               }
+             }
              break;
 
             case 6:
+            //Mostrar Alumnos de un grupo
             std::cout<<"Introduzca numero de grupo:\n";
             std::cin>>grupo;
             agenda.mostrarAlumnosMismoGrupo(grupo);
@@ -395,21 +496,60 @@ int main()
 
             case 7:
              //Modificar alumno
-             std::cout<<"Introduzca el dni del alumno que desea modificar:";
-             std::cin>>dni;
-             pos = agenda.searchAlumnoDNI(dni);
-             if(pos != -1)//si el alumno existe en la lista
+             std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+             std::getline(std::cin,apellidos);
+             if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
              {
-               agenda.modificarAlumno(dni,pos);
-             }else {
-               std::cout<<"No existe un alumno con el DNI indicado\n";
+               std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+               //se solicita el dni del alumno que se quiere Borrar
+               std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+               std::cin>>dni;
+               pos = agenda.searchAlumnoDNI(dni);
+               if(pos != -1)//si se encuentra alumno por su dni
+               {
+                 agenda.modificarAlumnoDNI(dni,pos);
+               }else {
+                 std::cout<<"No existe un alumno con el DNI indicado.\n";
+               }
+             }else { //los apellidos existen en la agenda
+               if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+               {
+                 std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                 std::cin>>dni;
+                 pos = agenda.searchAlumnoDNI(dni);
+                 if(pos != -1)//si se encuentra alumno por su dni
+                 {
+                   agenda.modificarAlumnoDNI(dni,pos);
+                 }else {
+                   std::cout<<"No existe un alumno con el DNI indicado.\n";
+                 }
+               }else {
+                 agenda.modificarAlumnoApellidos(apellidos,agenda.searchAlumnoApellidos(apellidos));
+               }
              }
             break;
 
             case 8:
-             std::cout<<"Introduzca el dni del alumno que desea visualizar\n";
-             std::cin>>dni;
-             agenda.mostrarUnAlumno(dni);
+            //MOstrar UN alumno
+            std::cout<<"Introduzca los apellidos del alumno que quiere eliminar:\n";
+            std::getline(std::cin,apellidos);
+            if(agenda.searchAlumnoApellidos(apellidos) == -1)//no existe en la agenda
+            {
+              std::cout<<"No se ha encontrado un alumno con esos apellidos.\n";
+              //se solicita el dni del alumno que se quiere Borrar
+              std::cout<<"Introduzca el DNI del alumno que quiere eliminar:\n";
+              std::cin>>dni;
+              agenda.mostrarUnAlumnoDNI(dni);
+            }else { //existe alumno
+              if(agenda.coincideAlumno(apellidos,agenda.searchAlumnoApellidos(apellidos)))//si los apellidos del alumno coinciden con los de otro, se solicita DNI
+              {
+                std::cout<<"Hay dos o más alumnos con ese Apellido, porfavor especifique su DNI:\n";
+                std::cin>>dni;
+                agenda.mostrarUnAlumnoDNI(dni);
+              }else {
+                agenda.mostrarUnAlumnoApellidos(apellidos);
+              }
+            }
              break;
 
             default:
@@ -579,7 +719,7 @@ int menuP() //Este es el menu que se le mostrará a los usuarios privilegiados
   	posicion++;
 
 	PLACE(posicion++,10);
-	std::cout << "[6] Mostrar alumno mismo grupo";
+	std::cout << "[6] Mostrar alumnos mismo grupo";
 
   posicion++;
 

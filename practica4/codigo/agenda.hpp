@@ -8,6 +8,7 @@
 #include <string>
 #include <fstream>
 #include "alumno.hpp"
+#include "macros.hpp"
 
 using namespace std;
 
@@ -35,11 +36,16 @@ class Agenda{
     void mostrarAlumnosTerminal();
     void mostrarAlumnosHTML();
     int searchAlumnoDNI(std::string dni);
+    int searchAlumnoApellidos(std::string apellidos);
     bool addAlumno(Alumno alumno);
-    bool deleteAlumno(std::string dni);
+    bool deleteAlumnoDNI(std::string dni);
+    bool deleteAlumnoApellidos(std::string apellidos);
+    bool coincideAlumno(std::string apellidos,int pos);
     void mostrarAlumnosMismoGrupo(int grupo);
-    void mostrarUnAlumno(std::string dni);
-    void modificarAlumno(std::string dni,int pos);
+    void mostrarUnAlumnoDNI(std::string dni);
+    void mostrarUnAlumnoApellidos(std::string apellidos);
+    void modificarAlumnoDNI(std::string dni,int pos);
+    void modificarAlumnoApellidos(std::string apellidos, int pos);
     void crearCopiaSeguridad(std::string nombre);
 };
 
