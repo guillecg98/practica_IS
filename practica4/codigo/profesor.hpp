@@ -14,18 +14,15 @@ class Profesor
 private:
     string userName_;
     string password_;
-    int id_;
 
 public:
   //Profesor();
 
 string getUserName(){return userName_;};
 string getPassword(){return password_;};
-int getId(){return id_;};
 
 void setUserName(string userName){userName_ = userName;};
 void setPassword(string password){password_ = password;};
-void setId(int id){id_ = id;};
 
 
 inline bool loginId(std::string username)
